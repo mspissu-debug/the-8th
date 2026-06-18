@@ -1,0 +1,248 @@
+/**
+ * Shell condiviso — palette, font e atmosfera editorial della homepage
+ * su mentors, talenti, contact, edizioni e profili.
+ */
+
+body.home-story-active {
+	background: var(--story-bg);
+	color: var(--story-text);
+	background-image: none;
+}
+
+body.home-story-active .site-shell {
+	background: var(--story-bg);
+}
+
+/* Spazio per contatore scroll fisso in basso a destra */
+body.home-story-active main {
+	scroll-padding-bottom: 5rem;
+}
+
+/* Shell solo pagine interne — la home usa .home-story senza overflow clip */
+.story-page:not(.home-story) {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	background: var(--story-bg);
+	color: var(--story-text);
+	font-family: var(--font-body);
+	font-size: var(--text-base, 1.0625rem);
+	letter-spacing: 0.02em;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+.story-page:not(.home-story) > * {
+	position: relative;
+	z-index: 1;
+}
+
+.story-page:not(.home-story)::before,
+.story-page:not(.home-story)::after {
+	content: '';
+	position: absolute;
+	inset: -14%;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.story-page::before {
+	opacity: 0.28;
+	filter: blur(24px);
+	background:
+		radial-gradient(
+			circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+			color-mix(in srgb, var(--accent-primary) 22%, transparent) 0%,
+			color-mix(in srgb, var(--accent-secondary) 14%, transparent) 18%,
+			transparent 52%
+		),
+		radial-gradient(circle at 84% 14%, color-mix(in srgb, var(--accent-gold) 14%, transparent) 0%, transparent 42%);
+	animation: story-page-aura 16s ease-in-out infinite alternate;
+}
+
+.story-page::after {
+	opacity: 0.14;
+	background: repeating-linear-gradient(
+		-24deg,
+		transparent 0 92px,
+		color-mix(in srgb, var(--story-text) 10%, transparent) 92px 94px
+	);
+	animation: story-page-contours 26s ease-in-out infinite alternate;
+}
+
+@keyframes story-page-aura {
+	from {
+		transform: translate3d(-1.25%, -0.8%, 0);
+	}
+	to {
+		transform: translate3d(1.25%, 0.8%, 0);
+	}
+}
+
+@keyframes story-page-contours {
+	from {
+		transform: scale(1) rotate(-0.8deg);
+	}
+	to {
+		transform: scale(1.04) rotate(0.8deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.story-page:not(.home-story)::before,
+	.story-page:not(.home-story)::after {
+		animation: none;
+	}
+
+	.story-page .home-stagger {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+/* Sezioni alternate (charcoal / ash dalla homepage) */
+.story-page__section--soft {
+	background: var(--story-bg-soft);
+}
+
+.story-page__section--ash {
+	background: var(--story-bg-alt);
+}
+
+.story-page__section--void {
+	background: var(--story-bg);
+}
+
+/* Tipografia condivisa (hero, lane, profili) */
+.story-page__eyebrow {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label, 0.9rem);
+	letter-spacing: 0.04em;
+	text-transform: none;
+	opacity: 0.55;
+}
+
+.story-page :global(.story-page__heading) {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: var(--weight-black);
+	font-size: clamp(1.45rem, 3.8vw, 2.35rem);
+	letter-spacing: -0.02em;
+	text-transform: none;
+	line-height: 1.05;
+}
+
+.story-page__body {
+	font-family: var(--font-body);
+	font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+	line-height: 1.6;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--story-text-muted);
+}
+
+.story-page__tag {
+	margin: 0 0 0.65rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label, 0.9rem);
+	letter-spacing: 0.04em;
+	text-transform: none;
+	color: var(--accent-gold);
+}
+
+.story-page__lane-title {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: var(--weight-black);
+	font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+	letter-spacing: -0.01em;
+	text-transform: none;
+	line-height: 1.08;
+}
+
+.story-page__link {
+	display: inline-block;
+	font-family: var(--font-body);
+	font-size: var(--type-link, 0.95rem);
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--accent-gold) 88%, var(--story-text));
+	border-bottom: 1px solid color-mix(in srgb, var(--accent-gold) 45%, transparent);
+	padding-bottom: 0.12rem;
+}
+
+.story-page__frame {
+	background: var(--story-surface);
+}
+
+.story-page__role {
+	font-family: var(--font-body);
+	font-size: var(--type-label, 0.95rem);
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--accent-gold) 80%, var(--story-text));
+	line-height: 1.45;
+}
+
+/* Paragrafi “lede” dentro le pagine story: leggibilità come in home */
+.story-page :global(.story-hero__lede),
+.story-page .story-page__body {
+	text-transform: none;
+	letter-spacing: 0.02em;
+}
+
+/* Hero liste / profili — immagini meno dominanti */
+.mentors-story .story-hero,
+.talents-story .story-hero {
+	--story-hero-min: min(44svh, 23rem);
+}
+
+.mentor-story .story-hero,
+.student-story .story-hero {
+	--story-hero-min: min(40svh, 21rem);
+}
+
+.mentor-story .story-hero__copy,
+.student-story .story-hero__copy {
+	padding-bottom: clamp(1.25rem, 4vh, 2rem);
+}
+
+/* Griglie e card — stesso stagger/reveal della home Michele */
+.story-page .home-stagger {
+	opacity: 0;
+	transform: translateY(22px);
+	transition:
+		opacity 0.75s var(--ease-ribbit) var(--delay, 0s),
+		transform 0.75s var(--ease-ribbit) var(--delay, 0s);
+}
+
+.story-page .home-stagger.in-view {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.story-page .home-stagger[data-variant='left'] {
+	transform: translateX(-28px);
+}
+
+.story-page .home-stagger[data-variant='left'].in-view {
+	transform: translateX(0);
+}
+
+.story-page .home-stagger[data-variant='right'] {
+	transform: translateX(28px);
+}
+
+.story-page .home-stagger[data-variant='right'].in-view {
+	transform: translateX(0);
+}
+
+.story-page .home-stagger[data-variant='scale'] {
+	transform: scale(0.92);
+}
+
+.story-page .home-stagger[data-variant='scale'].in-view {
+	transform: scale(1);
+}

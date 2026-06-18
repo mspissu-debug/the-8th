@@ -1,0 +1,88 @@
+/**
+ * Motion — easing e reveal in stile agency (ref. ribbit.dk)
+ */
+
+:root {
+  --ease-ribbit: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-ribbit-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-reveal: 1.05s;
+  --stagger-word: 55ms;
+}
+
+@keyframes motion-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.motion-block {
+  display: block;
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity var(--duration-reveal) var(--ease-ribbit) var(--reveal-delay, 0ms),
+    transform var(--duration-reveal) var(--ease-ribbit) var(--reveal-delay, 0ms);
+}
+
+.motion-block--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-words {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.motion-words__word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: 0.28em;
+}
+
+.motion-words__inner {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    transform var(--duration-reveal) var(--ease-ribbit)
+      calc(var(--reveal-delay, 0ms) + var(--i, 0) * var(--stagger-word)),
+    opacity calc(var(--duration-reveal) * 0.85) var(--ease-ribbit)
+      calc(var(--reveal-delay, 0ms) + var(--i, 0) * var(--stagger-word));
+}
+
+.motion-words--visible .motion-words__inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-group {
+  opacity: 0;
+  transform: translateY(2rem) scale(0.985);
+  transition:
+    opacity 1.2s var(--ease-ribbit) var(--reveal-delay, 0ms),
+    transform 1.2s var(--ease-ribbit) var(--reveal-delay, 0ms);
+}
+
+.motion-group--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-block,
+  .motion-words__inner,
+  .motion-group {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

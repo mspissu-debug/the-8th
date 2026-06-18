@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# SvelteKit
+.svelte-kit
+build
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+studio/.env
+
+# Sanity Studio
+studio/node_modules
+studio/dist
+
+# OS & editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Vite
+vite.config.ts.timestamp-*

@@ -1,0 +1,73 @@
+/**
+ * Ponte estetico ibrido Matteo × Michele
+ * Font e palette Michele; token story Matteo mappati sulla stessa famiglia.
+ */
+
+:root {
+	--font-body: var(--font-secondary, 'Jost', -apple-system, BlinkMacSystemFont, sans-serif);
+	--font-ui: var(--font-body);
+	--weight-regular: 400;
+	--weight-medium: 500;
+	--weight-bold: 700;
+	--weight-black: 800;
+	--max-width: min(1240px, calc(100% - clamp(2rem, 6vw, 5rem)));
+	--editorial-eyebrow: clamp(0.875rem, 1.6vw, 1rem);
+	--radius-xl: 999px;
+	/* --ease-out / --ease-ribbit definiti in motion.css (reveal Michele) */
+	--text-base: 1.2rem;
+	--text: var(--fg);
+	--text-muted: var(--fg-muted);
+	--ease-soft: var(--ease);
+
+	--color-linen: var(--white);
+	--color-pearl: var(--white);
+	--color-amethyst: var(--black);
+	--color-ink: var(--black);
+	--color-glaucous: var(--grape);
+	--color-red: var(--indigo);
+
+	--bg-soft: color-mix(in srgb, var(--sky) 38%, var(--white));
+	--bg-elevated: var(--white);
+	--bg-inverse: var(--black);
+	--text-inverse: var(--white);
+	--border: var(--line);
+	--header-bg: color-mix(in srgb, var(--white) 92%, transparent);
+	--header-text: var(--black);
+	--footer-bg: var(--black);
+	--footer-text: var(--white);
+	--surface-aurora: radial-gradient(
+			ellipse 85% 55% at 100% 0%,
+			color-mix(in srgb, var(--sky) 72%, transparent),
+			transparent
+		),
+		radial-gradient(
+			ellipse 50% 45% at 0% 50%,
+			color-mix(in srgb, var(--indigo) 22%, transparent),
+			transparent
+		);
+	--shadow-soft: 0 20px 60px color-mix(in srgb, var(--indigo) 12%, transparent);
+	--editorial-pad: clamp(1.25rem, 4vw, 2.5rem);
+	--glass-bg: color-mix(in srgb, var(--white) 88%, transparent);
+	--glass-border: var(--line);
+	--glass-hero: color-mix(in srgb, var(--black) 75%, transparent);
+}
+
+body.home-story-active {
+	font-family: var(--font-body);
+	font-size: var(--text-base);
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--story-text);
+}
+
+body.home-story-active .site-header__shell,
+body:not(.home-story-active) .site-header__shell {
+	color: #f4f3ee;
+	text-shadow: none;
+}
+
+body:not(.home-story-active) .site-header {
+	background: transparent;
+	backdrop-filter: none;
+	border-bottom: none;
+}

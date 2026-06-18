@@ -1,0 +1,110 @@
+/**
+ * Profilo studente — layout e tipografia editorial
+ */
+
+.profile {
+  padding: 0 var(--editorial-pad) 3rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.profile__header {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .profile__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 2.5rem 0 2rem;
+  }
+}
+
+.profile__intro {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile__photo {
+  width: clamp(7rem, 22vw, 11rem);
+  height: clamp(7rem, 22vw, 11rem);
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.profile__name {
+  margin: 0 0 0.5rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.profile__project {
+  margin: 0 0 1rem;
+  font-size: var(--editorial-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+.profile__bio {
+  margin: 0 0 1.25rem;
+  font-size: var(--editorial-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.6;
+  max-width: 42rem;
+  color: var(--text-muted);
+}
+
+.profile__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--editorial-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sign-cta);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: opacity 0.2s ease;
+}
+
+.profile__social:hover {
+  opacity: 0.72;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-grid .card__title {
+  font-size: var(--editorial-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

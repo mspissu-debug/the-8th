@@ -1,0 +1,37 @@
+/**
+ * Story theme tokens for light/dark coherence.
+ * Applied on routes running in story mode (body.home-story-active).
+ */
+
+body.home-story-active {
+  --story-bg: #06060a;
+  --story-bg-soft: #0c0b10;
+  --story-bg-alt: #14131a;
+  --story-surface: #0a0a0e;
+  --story-border: color-mix(in srgb, var(--color-linen) 18%, transparent);
+  --story-text: var(--color-linen);
+  --story-text-muted: color-mix(in srgb, var(--color-linen) 74%, transparent);
+  --story-progress-track: color-mix(in srgb, var(--color-linen) 18%, transparent);
+  --story-progress-fill: var(--accent-gold);
+  --accent-gold: #d7b36a;
+  --accent-primary: #6f95ff;
+  --accent-secondary: #c38eff;
+}
+
+html[data-theme='light'] body.home-story-active {
+  --story-bg: #0a0a0f;
+  --story-bg-soft: #111018;
+  --story-surface: color-mix(in srgb, #17141f 88%, transparent);
+  --story-border: color-mix(in srgb, var(--color-linen) 18%, transparent);
+  --story-text: var(--color-linen);
+  --story-text-muted: color-mix(in srgb, var(--color-linen) 72%, transparent);
+}
+
+html[data-theme='dark'] body.home-story-active {
+  --story-bg: #050509;
+  --story-bg-soft: #0c0b11;
+  --story-surface: color-mix(in srgb, #13101a 90%, transparent);
+  --story-border: color-mix(in srgb, var(--color-linen) 22%, transparent);
+  --story-text: var(--color-linen);
+  --story-text-muted: color-mix(in srgb, var(--color-linen) 76%, transparent);
+}

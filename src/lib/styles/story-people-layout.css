@@ -1,0 +1,521 @@
+/**
+ * Layout mentor / studenti — struttura Michele (griglia a colonne, profilo split, liste).
+ * Colori e font: token story (--story-text, --accent-gold, --font-display, --font-body).
+ */
+
+.people-page-head {
+	padding: calc(4.5rem + 0.5rem) var(--editorial-pad) clamp(2rem, 5vh, 3rem);
+	border-bottom: 1px solid var(--story-border);
+}
+
+.people-page-head--after-nav {
+	padding-top: clamp(1.25rem, 3vh, 1.75rem);
+}
+
+.people-page-head__inner {
+	max-width: var(--max-width);
+	margin: 0 auto;
+}
+
+.people-page-head__code {
+	margin: 0 0 0.85rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label, 0.9rem);
+	letter-spacing: 0.14em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--accent-gold) 88%, var(--story-text));
+}
+
+.people-page-head__title {
+	margin: 0;
+	font-family: var(--font-display);
+	font-size: clamp(2.2rem, 6.5vw, 4.25rem);
+	font-weight: var(--weight-black, 700);
+	line-height: 0.95;
+	letter-spacing: -0.03em;
+	text-transform: none;
+	color: var(--story-text);
+}
+
+.people-page-head__lede {
+	margin: 1rem 0 0;
+	max-width: 42rem;
+	font-family: var(--font-body);
+	font-size: clamp(0.88rem, 1.6vw, 1rem);
+	line-height: 1.65;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--story-text-muted);
+}
+
+/* Griglia indice — 4 colonne con divisori */
+.people-row {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	max-width: var(--max-width);
+	margin: 0 auto;
+	border-top: 1px solid var(--story-border);
+	background: color-mix(in srgb, var(--story-bg-soft) 65%, var(--story-bg));
+	border-radius: 0 0 0.35rem 0.35rem;
+	overflow: hidden;
+}
+
+.people-row__card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+	min-height: clamp(12rem, 28vw, 16rem);
+	padding: clamp(1.35rem, 3vw, 2rem) clamp(1rem, 2.2vw, 1.5rem);
+	border-right: 1px solid var(--story-border);
+	color: var(--story-text);
+	text-decoration: none;
+	transition:
+		background 0.35s var(--ease-ribbit),
+		transform 0.35s var(--ease-ribbit);
+}
+
+.people-row__card:last-child {
+	border-right: none;
+}
+
+.people-row__card:hover {
+	background: color-mix(in srgb, var(--accent-primary) 8%, var(--story-bg-soft));
+	transform: translateY(-2px);
+}
+
+.people-row__idx {
+	font-family: var(--font-display);
+	font-size: clamp(1.75rem, 4vw, 2.35rem);
+	font-weight: 700;
+	line-height: 1;
+	color: color-mix(in srgb, var(--story-text) 22%, transparent);
+	transition: color 0.35s ease;
+}
+
+.people-row__card:hover .people-row__idx {
+	color: color-mix(in srgb, var(--accent-gold) 70%, var(--story-text));
+}
+
+.people-row__kicker {
+	margin-top: auto;
+	font-family: var(--font-body);
+	font-size: var(--type-label);
+	letter-spacing: 0.32em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--accent-gold) 85%, var(--story-text));
+}
+
+.people-row__name {
+	font-family: var(--font-display);
+	font-size: clamp(0.95rem, 2vw, 1.15rem);
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: none;
+	line-height: 1.15;
+}
+
+.people-row__excerpt {
+	margin: 0.15rem 0 0;
+	font-family: var(--font-body);
+	font-size: var(--editorial-eyebrow);
+	line-height: 1.65;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--story-text-muted);
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.people-row__cta {
+	margin-top: 0.65rem;
+	font-family: var(--font-body);
+	font-size: var(--type-link);
+	letter-spacing: 0.28em;
+	text-transform: none;
+	color: var(--story-text);
+}
+
+.people-row__card:hover .people-row__cta {
+	color: var(--accent-gold);
+}
+
+.people-index {
+	padding: 0 var(--editorial-pad) clamp(4rem, 10vh, 6rem);
+}
+
+/* Meta profilo */
+.people-profile-meta {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	flex-wrap: wrap;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: calc(4.25rem + 0.35rem) var(--editorial-pad) 1.25rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label, 0.85rem);
+	letter-spacing: 0.22em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--story-text) 55%, transparent);
+	border-bottom: 1px solid var(--story-border);
+}
+
+.people-profile-meta__trail {
+	color: color-mix(in srgb, var(--accent-gold) 80%, var(--story-text));
+}
+
+.people-profile-meta__pair {
+	opacity: 0.7;
+}
+
+.student-story .people-profile-meta,
+.mentor-story .people-profile-meta {
+	padding-top: 0.85rem;
+}
+
+/* Split profilo */
+.people-profile-split {
+	padding: clamp(2.5rem, 7vh, 4rem) var(--editorial-pad);
+}
+
+.people-profile-split__grid {
+	display: grid;
+	gap: clamp(2rem, 5vw, 3.5rem);
+	max-width: var(--max-width);
+	margin: 0 auto;
+	align-items: start;
+}
+
+@media (min-width: 768px) {
+	.people-profile-split__grid {
+		grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+	}
+}
+
+.people-profile-split__visual {
+	position: relative;
+}
+
+.people-profile-split__visual::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 2px;
+	background: linear-gradient(
+		180deg,
+		var(--accent-gold) 0%,
+		color-mix(in srgb, var(--accent-primary) 70%, var(--accent-gold)) 100%
+	);
+	z-index: 2;
+	transform: translateX(-0.65rem);
+}
+
+.people-profile-split__portrait {
+	position: relative;
+	aspect-ratio: 1;
+	width: min(100%, 15.5rem);
+	margin-inline: auto;
+	overflow: hidden;
+	background: var(--story-surface);
+	border: 1px solid var(--story-border);
+}
+
+.people-profile-split__portrait img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 18%;
+}
+
+.people-profile-split__tag {
+	position: absolute;
+	top: 0.65rem;
+	left: 0.65rem;
+	z-index: 1;
+	padding: 0.35rem 0.55rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label);
+	letter-spacing: 0.2em;
+	text-transform: none;
+	background: color-mix(in srgb, var(--accent-gold) 92%, var(--story-bg));
+	color: var(--story-bg);
+}
+
+.people-profile-split__name {
+	margin: 0;
+	font-family: var(--font-display);
+	font-size: clamp(1.85rem, 5vw, 3.25rem);
+	font-weight: var(--weight-black, 700);
+	line-height: 0.98;
+	letter-spacing: -0.02em;
+	text-transform: none;
+}
+
+.people-profile-split__name-accent {
+	color: var(--accent-gold);
+}
+
+.people-profile-split__role {
+	margin: 0.85rem 0 0;
+	font-family: var(--font-body);
+	font-size: var(--editorial-eyebrow);
+	letter-spacing: 0.12em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--story-text) 52%, transparent);
+}
+
+.people-profile-split__role strong {
+	color: color-mix(in srgb, var(--accent-gold) 75%, var(--story-text));
+	font-weight: 500;
+}
+
+.people-profile-split__bio {
+	margin: 1.35rem 0 0;
+	font-family: var(--font-body);
+	font-size: var(--editorial-body);
+	line-height: 1.7;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--story-text-muted);
+}
+
+.people-profile-split__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem 1.25rem;
+	margin-top: 1.75rem;
+}
+
+.people-profile-split__btn {
+	display: inline-block;
+	padding: 0.75rem 1.1rem;
+	font-family: var(--font-body);
+	font-size: var(--type-link);
+	letter-spacing: 0.22em;
+	text-transform: none;
+	border: 1px solid color-mix(in srgb, var(--accent-gold) 45%, var(--story-border));
+	color: var(--story-text);
+	transition:
+		background 0.35s ease,
+		border-color 0.35s ease,
+		transform 0.3s var(--ease-ribbit);
+}
+
+.people-profile-split__btn:hover {
+	transform: translateY(-2px);
+	border-color: var(--accent-gold);
+	background: color-mix(in srgb, var(--accent-gold) 12%, transparent);
+}
+
+/* Griglia lavori (student) */
+.people-works {
+	padding: clamp(2.5rem, 8vh, 4rem) var(--editorial-pad);
+	border-top: 1px solid var(--story-border);
+}
+
+.people-works__inner {
+	max-width: var(--max-width);
+	margin: 0 auto;
+}
+
+.people-works__head {
+	margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.people-works__code {
+	margin: 0 0 0.5rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label, 0.88rem);
+	letter-spacing: 0.14em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--accent-gold) 80%, var(--story-text));
+}
+
+.people-works__title {
+	margin: 0;
+	font-family: var(--font-display);
+	font-size: clamp(1.35rem, 3.5vw, 2.1rem);
+	font-weight: var(--weight-black, 700);
+	letter-spacing: 0.03em;
+	text-transform: none;
+	line-height: 1.05;
+	color: var(--story-text);
+}
+
+.people-works__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 2px;
+	background: var(--story-border);
+}
+
+.people-works__cell {
+	position: relative;
+	aspect-ratio: 1;
+	overflow: hidden;
+	background: var(--story-surface);
+	opacity: 0;
+	transform: translateY(14px);
+	transition:
+		opacity 0.65s var(--ease-ribbit) var(--delay, 0s),
+		transform 0.65s var(--ease-ribbit) var(--delay, 0s);
+}
+
+.people-works__cell.in-view {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.people-works__cell img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.55s var(--ease-ribbit);
+}
+
+.people-works__cell:hover img {
+	transform: scale(1.05);
+}
+
+.people-works__cell-num {
+	position: absolute;
+	left: 0.65rem;
+	bottom: 0.55rem;
+	font-family: var(--font-display);
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	color: color-mix(in srgb, var(--story-text) 75%, transparent);
+	z-index: 1;
+}
+
+.people-works__cell::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, color-mix(in srgb, var(--story-bg) 55%, transparent), transparent 55%);
+	pointer-events: none;
+}
+
+/* Riconoscimenti / lista */
+.people-recognitions {
+	padding: clamp(2.5rem, 8vh, 4.5rem) var(--editorial-pad);
+	background: var(--story-bg-soft);
+}
+
+.people-recognitions__inner {
+	max-width: var(--max-width);
+	margin: 0 auto;
+}
+
+.people-recognitions__code {
+	margin: 0 0 0.5rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label, 0.88rem);
+	letter-spacing: 0.14em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--accent-gold) 80%, var(--story-text));
+}
+
+.people-recognitions__title {
+	margin: 0 0 1.75rem;
+	font-family: var(--font-display);
+	font-size: clamp(1.35rem, 3.5vw, 2.25rem);
+	font-weight: var(--weight-black, 700);
+	letter-spacing: 0.03em;
+	text-transform: none;
+	line-height: 1.05;
+	color: var(--story-text);
+}
+
+.people-recognitions__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid var(--story-border);
+}
+
+.people-recognitions__item {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0.35rem 1.25rem;
+	padding: 1rem 0;
+	border-bottom: 1px solid color-mix(in srgb, var(--story-text) 10%, transparent);
+	font-family: var(--font-body);
+	font-size: clamp(0.82rem, 1.4vw, 0.92rem);
+	line-height: 1.55;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--story-text-muted);
+}
+
+.people-recognitions__roman {
+	font-family: var(--font-display);
+	font-size: 0.95rem;
+	font-weight: 700;
+	color: color-mix(in srgb, var(--story-text) 35%, transparent);
+}
+
+.people-recognitions__year {
+	font-size: var(--type-label, 0.88rem);
+	letter-spacing: 0.18em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--accent-gold) 70%, var(--story-text));
+}
+
+.people-recognitions__back {
+	display: inline-block;
+	margin-top: 2rem;
+	font-family: var(--font-body);
+	font-size: var(--type-link);
+	letter-spacing: 0.28em;
+	text-transform: none;
+	color: var(--story-text);
+	transition: color 0.25s ease;
+}
+
+.people-recognitions__back:hover {
+	color: var(--accent-gold);
+}
+
+.people-index-section {
+	padding: 0 var(--editorial-pad) clamp(3rem, 8vh, 5rem);
+}
+
+@media (max-width: 900px) {
+	.people-row {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.people-row__card:nth-child(2n) {
+		border-right: none;
+	}
+
+	.people-row__card:nth-child(-n + 2) {
+		border-bottom: 1px solid var(--story-border);
+	}
+
+	.people-works__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 520px) {
+	.people-row {
+		grid-template-columns: 1fr;
+	}
+
+	.people-row__card {
+		border-right: none;
+		border-bottom: 1px solid var(--story-border);
+	}
+
+	.people-row__card:last-child {
+		border-bottom: none;
+	}
+}

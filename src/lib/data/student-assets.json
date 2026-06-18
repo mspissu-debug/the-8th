@@ -1,0 +1,179 @@
+{
+  "samuele": {
+    "portrait": "/students/samuele/portrait.webp",
+    "concept": [
+      "/students/samuele/concept/01.webp",
+      "/students/samuele/concept/02.webp",
+      "/students/samuele/concept/03.webp",
+      "/students/samuele/concept/04.webp"
+    ],
+    "sketch": [
+      "/students/samuele/sketch/01.webp",
+      "/students/samuele/sketch/02.webp",
+      "/students/samuele/sketch/03.webp",
+      "/students/samuele/sketch/04.webp",
+      "/students/samuele/sketch/05.webp",
+      "/students/samuele/sketch/06.webp"
+    ],
+    "vetrina": [
+      "/placeholders/jewelry-01.webp",
+      "/placeholders/jewelry-02.webp",
+      "/placeholders/jewelry-03.webp"
+    ],
+    "finished": [
+      {
+        "src": "/students/samuele/finished/01.webp"
+      },
+      {
+        "src": "/students/samuele/finished/02.webp",
+        "hover": "/students/samuele/finished-hover/02.webp"
+      },
+      {
+        "src": "/students/samuele/finished/03.webp",
+        "hover": "/students/samuele/finished-hover/03.webp"
+      },
+      {
+        "src": "/students/samuele/finished/04.webp",
+        "hover": "/students/samuele/finished-hover/04.webp"
+      },
+      {
+        "src": "/students/samuele/finished/05.webp"
+      },
+      {
+        "src": "/students/samuele/finished/06.webp"
+      },
+      {
+        "src": "/students/samuele/finished/07.webp",
+        "hover": "/students/samuele/finished-hover/07.webp"
+      },
+      {
+        "src": "/students/samuele/finished/08.webp",
+        "hover": "/students/samuele/finished-hover/08.webp"
+      }
+    ]
+  },
+  "roya": {
+    "portrait": "/students/roya/portrait.webp",
+    "concept": [
+      "/students/roya/concept/01.webp",
+      "/students/roya/concept/02.webp",
+      "/students/roya/concept/03.webp",
+      "/students/roya/concept/04.webp",
+      "/students/roya/concept/05.webp",
+      "/students/roya/concept/06.webp"
+    ],
+    "sketch": [
+      "/students/roya/sketch/01.webp",
+      "/students/roya/sketch/02.webp",
+      "/students/roya/sketch/03.webp",
+      "/students/roya/sketch/04.webp",
+      "/students/roya/sketch/05.webp",
+      "/students/roya/sketch/06.webp"
+    ],
+    "vetrina": [
+      "/placeholders/jewelry-01.webp",
+      "/placeholders/jewelry-02.webp",
+      "/placeholders/jewelry-03.webp"
+    ],
+    "finished": [
+      {
+        "src": "/students/roya/finished/01.webp"
+      },
+      {
+        "src": "/students/roya/finished/02.webp"
+      },
+      {
+        "src": "/students/roya/finished/03.webp"
+      },
+      {
+        "src": "/students/roya/finished/04.webp"
+      },
+      {
+        "src": "/students/roya/finished/05.webp"
+      },
+      {
+        "src": "/students/roya/finished/06.webp"
+      },
+      {
+        "src": "/students/roya/finished/07.webp"
+      },
+      {
+        "src": "/students/roya/finished/08.webp"
+      }
+    ]
+  },
+  "elena": {
+    "portrait": "/students/elena/portrait.webp",
+    "concept": [
+      "/students/elena/concept/01.webp",
+      "/students/elena/concept/02.webp",
+      "/students/elena/concept/03.webp"
+    ],
+    "sketch": [
+      "/placeholders/jewelry-01.webp",
+      "/placeholders/jewelry-02.webp",
+      "/placeholders/jewelry-03.webp"
+    ],
+    "vetrina": [
+      "/students/elena/vetrina/01.webp",
+      "/students/elena/vetrina/02.webp",
+      "/students/elena/vetrina/03.webp",
+      "/students/elena/vetrina/04.webp",
+      "/students/elena/vetrina/05.webp"
+    ],
+    "finished": [
+      {
+        "src": "/students/elena/finished/01.webp"
+      },
+      {
+        "src": "/students/elena/finished/02.webp"
+      },
+      {
+        "src": "/students/elena/finished/03.webp"
+      },
+      {
+        "src": "/students/elena/finished/04.webp"
+      },
+      {
+        "src": "/students/elena/finished/05.webp"
+      },
+      {
+        "src": "/students/elena/finished/06.webp"
+      },
+      {
+        "src": "/students/elena/finished/07.webp"
+      }
+    ]
+  },
+  "flavia": {
+    "portrait": "/students/flavia/portrait.webp",
+    "concept": [
+      "/students/flavia/concept/01.webp",
+      "/students/flavia/concept/02.webp",
+      "/students/flavia/concept/03.webp",
+      "/students/flavia/concept/04.webp",
+      "/students/flavia/concept/05.webp"
+    ],
+    "sketch": [
+      "/students/flavia/sketch/01.webp",
+      "/students/flavia/sketch/02.webp",
+      "/students/flavia/sketch/03.webp",
+      "/students/flavia/sketch/04.webp",
+      "/students/flavia/sketch/05.webp",
+      "/students/flavia/sketch/06.webp"
+    ],
+    "vetrina": [
+      "/students/flavia/vetrina/01.webp",
+      "/students/flavia/vetrina/02.webp",
+      "/students/flavia/vetrina/03.webp"
+    ],
+    "finished": [
+      {
+        "src": "/students/flavia/finished/01.webp"
+      },
+      {
+        "src": "/students/flavia/finished/02.webp"
+      }
+    ]
+  }
+}

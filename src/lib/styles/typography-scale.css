@@ -1,0 +1,319 @@
+/**
+ * Scala tipografica globale — testi più grandi, senza maiuscolo forzato.
+ * Testi secondari: Jost (geometrica tipo Futura, vicina a SF Pro su Apple).
+ */
+
+html {
+	font-size: 118.75%;
+}
+
+/* Titoli = display; corpo e label = Jost */
+body,
+body.home-story-active,
+.story-page {
+	font-family: var(--font-body);
+	-webkit-font-smoothing: antialiased;
+}
+
+:root {
+	--text-xs: 0.9375rem;
+	--text-sm: 1.0625rem;
+	--text-base: 1.2rem;
+	--text-lg: 1.35rem;
+	--text-xl: clamp(1.35rem, 2.6vw, 1.75rem);
+	--text-2xl: clamp(1.65rem, 3.5vw, 2.55rem);
+	--text-hero: clamp(3.25rem, 11vw, 6.5rem);
+
+	--editorial-hero-title: clamp(2.85rem, 9vw, 6.25rem);
+	--editorial-page-title: clamp(2.65rem, 7.2vw, 5rem);
+	--editorial-card-title: clamp(2rem, 5.2vw, 3.1rem);
+	--editorial-body: clamp(1.15rem, 2.35vw, 1.4rem);
+	--editorial-eyebrow: clamp(0.95rem, 1.75vw, 1.1rem);
+
+	--type-nav: clamp(1.05rem, 1.3vw, 1.22rem);
+	--type-nav-panel: clamp(1.12rem, 2.1vw, 1.3rem);
+	--type-label: clamp(0.95rem, 1.55vw, 1.08rem);
+	--type-link: clamp(1rem, 1.65vw, 1.12rem);
+	--type-display-sm: clamp(1.35rem, 3.2vw, 2rem);
+	--type-display-md: clamp(1.75rem, 4.2vw, 2.85rem);
+	--type-display-lg: clamp(2.1rem, 5vw, 3.35rem);
+	/* Titolo sotto // numero (percorso, talenti, mentor, …) */
+	--type-section-title: clamp(2.75rem, 7.2vw, 4.5rem);
+}
+
+body,
+body.home-story-active,
+.story-page:not(.home-story) {
+	font-size: var(--text-base);
+	letter-spacing: 0.02em;
+	text-transform: none;
+	line-height: 1.58;
+}
+
+body p,
+body li,
+body blockquote,
+body.home-story-active p,
+body.home-story-active li,
+.story-page p,
+.story-page li {
+	text-transform: none;
+	letter-spacing: 0.02em;
+}
+
+/* Font secondari (label, corpo, nav, form) */
+.site-header__bar-link,
+.site-header__panel-label,
+.site-header__abstract-kicker,
+.site-header__abstract-body,
+.site-header__link,
+.story-path__code,
+.story-path__body,
+.story-statement__code,
+.story-statement__body,
+.story-film__label,
+.story-talents__code,
+.story-talents__lede,
+.story-talents__name,
+.story-talents__project,
+.story-talents__cta,
+.story-mentors__code,
+.story-mentors__lede,
+.story-mentors__cta,
+.home-story__hero-kicker,
+.home-story__hero-tagline,
+.home-story__gate-kicker,
+.home-story__gate-btn,
+.home-story__closing-cta,
+.story-page__eyebrow,
+.story-page__body,
+.story-page__tag,
+.story-page__link,
+.story-hero__code,
+.story-hero__lede,
+.people-page-head__code,
+.people-page-head__lede,
+.people-row__kicker,
+.people-row__excerpt,
+.people-row__cta,
+.people-profile-meta,
+.people-profile-split__role,
+.people-profile-split__bio,
+.people-profile-split__btn,
+.people-profile-split__tag,
+.story-peer-nav__code,
+.story-peer-nav__lede,
+.story-peer-nav__flow-kicker,
+.story-peer-nav__flow-project,
+.story-peer-nav__cta,
+.story-vetrina__code,
+.story-vetrina__body,
+.story-vetrina__cta,
+.story-newsletter__code,
+.story-newsletter__text,
+.story-newsletter__link,
+.page-nav--story .page-nav__back-label,
+.page-nav--story .page-nav__back-hint,
+.section-label,
+.link-chain,
+.open-call-form__label,
+.open-call-form__hint,
+.open-call-form__check,
+.open-call-form__submit,
+.newsletter-form__label,
+.newsletter-form__field input,
+.contact-story__social a,
+.image-lightbox__meta,
+.image-lightbox__caption,
+.people-phase__label,
+.people-phase__caption {
+	font-family: var(--font-body) !important;
+	letter-spacing: -0.01em;
+}
+
+/* Navbar */
+.site-header__logo {
+	font-size: clamp(1.25rem, 2.4vw, 1.5rem) !important;
+	letter-spacing: 0.02em !important;
+	text-transform: none !important;
+}
+
+.site-header__bar-link {
+	font-size: var(--type-nav) !important;
+	letter-spacing: 0.02em !important;
+	text-transform: none !important;
+	padding: 0.5rem 0.85rem !important;
+}
+
+.site-header__panel-label,
+.site-header__abstract-kicker {
+	font-size: var(--type-label) !important;
+	letter-spacing: 0.03em !important;
+	text-transform: none !important;
+}
+
+.site-header__link {
+	font-size: var(--type-nav-panel) !important;
+	text-transform: none !important;
+}
+
+.site-header__abstract-body {
+	font-size: clamp(1.1rem, 2.1vw, 1.25rem) !important;
+	text-transform: none !important;
+}
+
+/* Percorso scroll home (Vetrina, Concept, …) */
+.story-path__code,
+.story-statement__code,
+.story-film__label,
+.story-talents__code,
+.story-mentors__code {
+	font-size: var(--type-label) !important;
+	letter-spacing: 0.04em !important;
+	text-transform: none !important;
+	opacity: 0.55 !important;
+}
+
+.story-path :global(.story-path__title),
+.story-statement :global(.story-statement__title),
+.story-talents :global(.story-talents__title),
+.story-mentors :global(.story-mentors__title),
+.story-vetrina :global(.story-vetrina__title),
+.story-newsletter :global(.story-newsletter__title),
+.story-peer-nav .story-peer-nav__title,
+.story-film :global(.story-film__title),
+.story-rail :global(.story-rail__title) {
+	font-size: var(--type-section-title) !important;
+	letter-spacing: -0.03em !important;
+	text-transform: none !important;
+	line-height: 1.06 !important;
+	font-weight: var(--weight-black, 800) !important;
+}
+
+.story-path__body,
+.story-statement__body {
+	font-size: var(--editorial-body) !important;
+	text-transform: none !important;
+	line-height: 1.62 !important;
+}
+
+
+.story-talents__lede,
+.story-mentors__lede,
+.story-talents__name,
+.story-mentors__name,
+.story-talents__project {
+	font-size: var(--editorial-body);
+	text-transform: none;
+}
+
+.story-talents__cta,
+.story-mentors__cta,
+.home-story__closing-cta,
+.story-talents__cta,
+.home-story__hero-kicker,
+.home-story__gate-kicker,
+.home-story__gate-btn {
+	text-transform: none;
+	font-size: var(--type-link);
+}
+
+.home-story :global(.story-statement__title) {
+	font-size: var(--type-section-title) !important;
+}
+
+/* Pagine story */
+.story-page__eyebrow,
+.people-page-head__code,
+.story-page__tag,
+.story-hero__code {
+	font-size: var(--type-label) !important;
+	text-transform: none !important;
+}
+
+.story-page :global(.story-page__heading),
+.people-page-head__title {
+	font-size: var(--type-display-md) !important;
+	text-transform: none !important;
+}
+
+.people-page-head__title {
+	font-size: var(--editorial-page-title) !important;
+}
+
+.story-page__body,
+.story-page :global(.story-hero__lede),
+.story-hero__lede,
+.people-page-head__lede,
+.people-row__excerpt,
+.people-row__name {
+	font-size: var(--editorial-body);
+	text-transform: none;
+}
+
+.story-page__lane-title {
+	font-size: var(--type-display-sm) !important;
+	text-transform: none !important;
+}
+
+.story-page__link,
+.page-nav--story .page-nav__back-label {
+	font-size: var(--type-link) !important;
+	text-transform: none !important;
+}
+
+.page-nav--story .page-nav__back-hint {
+	font-size: var(--type-label) !important;
+}
+
+.story-hero :global(.story-hero__title) {
+	font-size: var(--editorial-hero-title) !important;
+	text-transform: none !important;
+}
+
+.section-label,
+.link-chain {
+	font-size: var(--type-label) !important;
+	text-transform: none !important;
+}
+
+.newsletter-form__label,
+.open-call-form__label,
+.open-call-form__submit,
+.contact-story__social a {
+	text-transform: none;
+}
+
+.open-call-form__field input,
+.open-call-form__field textarea {
+	font-size: var(--text-base);
+}
+
+.story-vetrina__code,
+.story-vetrina :global(.story-vetrina__title),
+.story-vetrina__body,
+.story-vetrina__cta,
+.story-newsletter__code,
+.story-newsletter :global(.story-newsletter__title),
+.story-newsletter__text,
+.story-newsletter__link,
+.story-peer-nav__code,
+.story-peer-nav .story-peer-nav__title,
+.story-peer-nav__lede,
+.story-peer-nav__flow-kicker,
+.story-peer-nav__flow-project,
+.story-peer-nav__cta {
+	text-transform: none !important;
+}
+
+
+.story-vetrina__body,
+.story-newsletter__text {
+	font-size: var(--editorial-body) !important;
+}
+
+/* Nessun maiuscolo forzato nelle pagine editoriali */
+body.home-story-active :where(h1, h2, h3, h4, p, a, button, label, span, li, figcaption):not(.admin-theme *),
+.story-page :where(h1, h2, h3, h4, p, a, button, label, span, li, figcaption):not(.admin-theme *) {
+	text-transform: none;
+}

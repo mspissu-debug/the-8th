@@ -1,0 +1,152 @@
+/**
+ * Home — tipografia editorial (token condivisi con pagine interne)
+ */
+
+.home-section {
+  --home-pad: var(--editorial-pad);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(5.5rem + var(--home-pad)) var(--home-pad) clamp(4.5rem, 12vh, 7.5rem);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  color: var(--home-fg, var(--text));
+  background: var(--home-bg, var(--bg-soft));
+}
+
+.home-section--dark {
+  --home-bg: color-mix(in srgb, var(--bg-inverse) 88%, var(--accent-ink) 12%);
+  --home-fg: var(--color-linen);
+  --home-muted: rgba(244, 243, 238, 0.78);
+  --home-subtle: rgba(244, 243, 238, 0.48);
+  --home-accent: var(--color-glaucous-light);
+  --home-cta: var(--color-glaucous-light);
+}
+
+.home-section--ink {
+  --home-bg: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--accent-ink) 78%, var(--bg-inverse) 22%) 0%,
+    color-mix(in srgb, var(--accent-secondary) 24%, var(--accent-ink)) 55%,
+    color-mix(in srgb, var(--accent-ink) 86%, var(--bg-inverse) 14%) 100%
+  );
+  --home-fg: var(--color-linen);
+  --home-muted: rgba(244, 243, 238, 0.78);
+  --home-subtle: rgba(244, 243, 238, 0.48);
+  --home-accent: var(--color-glaucous-light);
+  --home-cta: var(--color-glaucous-light);
+}
+
+.home-section--light {
+  --home-bg: var(--bg-soft);
+  --home-fg: var(--text);
+  --home-muted: var(--text-muted);
+  --home-subtle: var(--text-subtle);
+  --home-accent: var(--text-subtle);
+  --home-cta: var(--sign-cta);
+}
+
+[data-theme='dark'] .home-section--dark,
+[data-theme='dark'] .home-section--ink {
+  --home-fg: var(--text);
+  --home-muted: var(--text-muted);
+  --home-subtle: var(--text-subtle);
+  --home-accent: color-mix(in srgb, var(--accent-soft) 78%, var(--text-subtle));
+  --home-cta: var(--accent-gold);
+}
+
+.home-block {
+  max-width: var(--editorial-max);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-block--center {
+  text-align: center;
+}
+
+.home-block--center .home-block__text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* —— Blocco mentor / talenti (stessa struttura) —— */
+.home-block--people {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.home-block--people .home-block__title {
+  margin: 0 0 clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.home-block--people .home-block__text {
+  margin: 0 0 clamp(2.5rem, 6.5vw, 4rem);
+  max-width: 44rem;
+}
+
+.home-block--people :global(.people-spotlight) {
+  margin: 0;
+}
+
+.home-block__eyebrow,
+.home-block :global(.home-block__eyebrow) {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-body);
+  font-size: var(--editorial-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--home-accent);
+}
+
+.home-block__title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: var(--editorial-hero-title);
+  font-weight: var(--weight-semibold);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--home-fg);
+}
+
+.home-block__text {
+  margin: 0 0 var(--space-md);
+  max-width: 42rem;
+  font-family: var(--font-body);
+  font-size: var(--editorial-body);
+  font-weight: var(--weight-regular);
+  line-height: 1.6;
+  color: var(--home-muted);
+}
+
+.home-block__text:last-of-type {
+  margin-bottom: var(--space-md);
+}
+
+.home-block__cta {
+  display: inline-block;
+  margin-top: 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.01em;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--home-cta);
+  opacity: 0.92;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.home-block__cta:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.home-block__cta--plain {
+  margin-top: 0;
+}

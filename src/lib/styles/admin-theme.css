@@ -1,0 +1,428 @@
+/**
+ * Admin — stile ibrido scuro + gradienti Michele
+ */
+
+body.admin-active {
+	background: #020312;
+	color: var(--white);
+	font-family: var(--font-mono);
+	font-size: 0.68rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	background-image:
+		radial-gradient(ellipse 85% 55% at 100% 0%, color-mix(in srgb, var(--sky) 48%, transparent), transparent),
+		radial-gradient(ellipse 50% 45% at 0% 50%, color-mix(in srgb, var(--indigo) 28%, transparent), transparent),
+		radial-gradient(ellipse 65% 45% at 0% 100%, color-mix(in srgb, var(--grape) 38%, transparent), transparent),
+		radial-gradient(ellipse 40% 30% at 70% 60%, color-mix(in srgb, var(--sky) 22%, transparent), transparent);
+	-webkit-font-smoothing: antialiased;
+}
+
+body.admin-active p,
+body.admin-active label,
+body.admin-active textarea,
+body.admin-active select,
+body.admin-active input {
+	text-transform: none;
+	letter-spacing: 0.04em;
+}
+
+.admin-shell {
+	position: relative;
+	isolation: isolate;
+	min-height: 100vh;
+	padding: clamp(5rem, 12vw, 7rem) 0 5rem;
+	overflow: hidden;
+}
+
+.admin-shell::before,
+.admin-shell::after {
+	content: '';
+	position: absolute;
+	inset: -20%;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.admin-shell::before {
+	opacity: 0.35;
+	filter: blur(28px);
+	background:
+		radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--sky) 55%, transparent) 0%, transparent 48%),
+		radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--grape) 45%, transparent) 0%, transparent 42%);
+	animation: admin-aura 18s ease-in-out infinite alternate;
+}
+
+.admin-shell::after {
+	opacity: 0.12;
+	background: repeating-linear-gradient(
+		-24deg,
+		transparent 0 14px,
+		color-mix(in srgb, var(--white) 8%, transparent) 14px 15px
+	);
+	animation: admin-contours 24s ease-in-out infinite alternate;
+}
+
+@keyframes admin-aura {
+	from {
+		transform: translate3d(-1%, -0.6%, 0);
+	}
+	to {
+		transform: translate3d(1%, 0.6%, 0);
+	}
+}
+
+@keyframes admin-contours {
+	from {
+		transform: scale(1) rotate(-0.6deg);
+	}
+	to {
+		transform: scale(1.03) rotate(0.6deg);
+	}
+}
+
+.admin-shell > * {
+	position: relative;
+	z-index: 1;
+}
+
+.admin-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem 1.75rem;
+	margin-bottom: 3rem;
+	padding-bottom: 1.25rem;
+	border-bottom: 1px solid color-mix(in srgb, var(--white) 14%, transparent);
+	font-size: 0.58rem;
+	letter-spacing: 0.2em;
+}
+
+.admin-nav a {
+	color: color-mix(in srgb, var(--white) 62%, transparent);
+	transition:
+		color 0.25s var(--ease-ribbit),
+		transform 0.25s var(--ease-ribbit);
+}
+
+.admin-nav a:hover {
+	color: var(--acid);
+	transform: translateY(-1px);
+}
+
+.admin-dash h1,
+.admin-form h1 {
+	margin: 0 0 1rem;
+	font-family: var(--font-display);
+	font-size: clamp(2rem, 5vw, 3rem);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	line-height: 1;
+	background: linear-gradient(120deg, var(--white) 0%, var(--sky) 55%, var(--grape) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.admin-dash__lead {
+	max-width: 52ch;
+	margin-bottom: 3rem;
+	font-size: clamp(0.88rem, 1.5vw, 1rem);
+	line-height: 1.65;
+	color: color-mix(in srgb, var(--white) 72%, transparent);
+}
+
+.admin-dash__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1px;
+	border: 1px solid color-mix(in srgb, var(--white) 12%, transparent);
+	background: color-mix(in srgb, var(--white) 10%, transparent);
+}
+
+.admin-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding: 2rem;
+	background: color-mix(in srgb, #0a0c1e 88%, var(--indigo) 12%);
+	transition:
+		transform 0.35s var(--ease-ribbit),
+		background 0.35s ease,
+		border-color 0.35s ease;
+	border: 1px solid transparent;
+}
+
+.admin-card:hover {
+	transform: translateY(-4px);
+	background: color-mix(in srgb, #12152a 82%, var(--grape) 18%);
+	border-color: color-mix(in srgb, var(--acid) 35%, transparent);
+}
+
+.admin-card__num {
+	font-family: var(--font-display);
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1;
+	color: color-mix(in srgb, var(--sky) 70%, transparent);
+}
+
+.admin-card h2 {
+	margin: 0;
+	font-family: var(--font-display);
+	font-size: 1.1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: var(--white);
+}
+
+.admin-card p {
+	margin: 0;
+	font-size: 0.82rem;
+	line-height: 1.6;
+	color: color-mix(in srgb, var(--white) 65%, transparent);
+}
+
+.admin-form__notice {
+	margin-bottom: 1.5rem;
+	padding: 0.65rem 0.9rem;
+	border: 1px solid color-mix(in srgb, var(--acid) 40%, transparent);
+	background: color-mix(in srgb, var(--acid) 12%, transparent);
+	font-size: 0.62rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--acid);
+	animation: admin-notice-in 0.45s var(--ease-ribbit) both;
+}
+
+@keyframes admin-notice-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.admin-fieldset {
+	margin-bottom: 1.5rem;
+	padding: 1.5rem;
+	display: grid;
+	gap: 1rem;
+	border: 1px solid color-mix(in srgb, var(--white) 12%, transparent);
+	background:
+		radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--indigo) 18%, transparent), transparent 55%),
+		color-mix(in srgb, #0a0c1e 92%, transparent);
+	transition:
+		border-color 0.3s ease,
+		transform 0.35s var(--ease-ribbit);
+}
+
+.admin-fieldset:hover {
+	border-color: color-mix(in srgb, var(--grape) 35%, transparent);
+}
+
+.admin-fieldset legend {
+	padding: 0 0.5rem;
+	font-family: var(--font-display);
+	font-weight: 700;
+	font-size: 0.95rem;
+	color: var(--acid);
+}
+
+.admin-fieldset label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	font-size: 0.58rem;
+	letter-spacing: 0.16em;
+	color: color-mix(in srgb, var(--white) 58%, transparent);
+}
+
+.admin-fieldset input,
+.admin-fieldset select,
+.admin-import textarea {
+	padding: 0.55rem 0.65rem;
+	border: 1px solid color-mix(in srgb, var(--white) 18%, transparent);
+	background: color-mix(in srgb, var(--black) 65%, transparent);
+	color: var(--white);
+	font: inherit;
+	transition:
+		border-color 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.admin-fieldset input:focus,
+.admin-fieldset select:focus,
+.admin-import textarea:focus {
+	outline: none;
+	border-color: color-mix(in srgb, var(--sky) 55%, transparent);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--sky) 18%, transparent);
+}
+
+.admin-check {
+	flex-direction: row !important;
+	align-items: center;
+	gap: 0.5rem !important;
+}
+
+.admin-preview {
+	font-size: 0.58rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--sky);
+	border-bottom: 1px solid color-mix(in srgb, var(--sky) 45%, transparent);
+	width: fit-content;
+	transition: color 0.2s ease;
+}
+
+.admin-preview:hover {
+	color: var(--acid);
+}
+
+.admin-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin: 2rem 0;
+}
+
+.admin-btn {
+	padding: 0.75rem 1.25rem;
+	border: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
+	background: color-mix(in srgb, var(--white) 4%, transparent);
+	color: var(--white);
+	font-size: 0.58rem;
+	letter-spacing: 0.18em;
+	cursor: pointer;
+	transition:
+		transform 0.25s var(--ease-ribbit),
+		background 0.25s ease,
+		border-color 0.25s ease;
+}
+
+.admin-btn:hover {
+	transform: translateY(-2px);
+	border-color: color-mix(in srgb, var(--sky) 45%, transparent);
+}
+
+.admin-btn--primary {
+	border-color: color-mix(in srgb, var(--indigo) 40%, var(--sky) 60%);
+	background: linear-gradient(135deg, var(--indigo) 0%, var(--grape) 100%);
+}
+
+.admin-btn--primary:hover {
+	border-color: color-mix(in srgb, var(--acid) 50%, transparent);
+}
+
+.admin-import textarea {
+	width: 100%;
+	margin: 0.5rem 0;
+	min-height: 6rem;
+}
+
+.admin-stagger {
+	opacity: 0;
+	transform: translateY(20px);
+	transition:
+		opacity 0.7s var(--ease-ribbit) var(--delay, 0s),
+		transform 0.7s var(--ease-ribbit) var(--delay, 0s);
+}
+
+.admin-stagger.in-view {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.admin-stagger[data-variant='right'] {
+	transform: translateX(24px);
+}
+
+.admin-stagger[data-variant='right'].in-view {
+	transform: translateX(0);
+}
+
+.admin-login {
+	min-height: 70vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+	max-width: 360px;
+}
+
+.admin-login h1 {
+	margin: 0;
+	font-family: var(--font-display);
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	font-weight: 700;
+	text-transform: uppercase;
+	background: linear-gradient(120deg, var(--white) 0%, var(--sky) 55%, var(--grape) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.admin-login__hint {
+	font-size: 0.82rem;
+	line-height: 1.6;
+	color: color-mix(in srgb, var(--white) 65%, transparent);
+}
+
+.admin-login input {
+	padding: 0.75rem 1rem;
+	border: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
+	background: color-mix(in srgb, var(--black) 55%, transparent);
+	color: var(--white);
+	font: inherit;
+	text-transform: none;
+	letter-spacing: 0.08em;
+}
+
+.admin-login button[type='submit'] {
+	padding: 0.85rem 1.25rem;
+	background: linear-gradient(135deg, var(--indigo) 0%, var(--grape) 100%);
+	color: var(--white);
+	letter-spacing: 0.2em;
+	border: none;
+	cursor: pointer;
+	transition: transform 0.25s var(--ease-ribbit);
+}
+
+.admin-login button[type='submit']:hover {
+	transform: translateY(-2px);
+}
+
+.admin-login__err {
+	color: #ff8a8a;
+	font-size: 0.62rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.admin-guard__out {
+	position: fixed;
+	top: 5rem;
+	right: 1.5rem;
+	z-index: 300;
+	font-size: 0.58rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: color-mix(in srgb, var(--acid) 85%, var(--white));
+	border-bottom: 1px solid color-mix(in srgb, var(--acid) 45%, transparent);
+	padding-bottom: 0.1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.admin-shell::before,
+	.admin-shell::after {
+		animation: none;
+	}
+
+	.admin-stagger {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}

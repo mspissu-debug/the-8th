@@ -1,0 +1,105 @@
+/**
+ * Home storytelling — header senza vetro, tono scuro uniforme
+ */
+
+body.home-story-active {
+  background: var(--story-bg, #06060a);
+  --persistent-cta-safe: 5.5rem;
+}
+
+body.home-story-active .site-shell {
+  background: var(--story-bg, #06060a);
+}
+
+body.home-story-active .site-header__logo,
+body.home-story-active .site-header__menu-btn {
+  color: var(--color-linen);
+}
+
+body.home-story-active .site-header__menu-icon span {
+  background: var(--color-linen);
+}
+
+/* Barra scura anche in home — contrasto su hero chiaro */
+body.home-story-active .site-header__shell {
+  --header-bar-bg: rgba(14, 14, 20, 0.36);
+}
+
+/* Home: niente fascia nera a sinistra — l’indice fluttua sul contenuto */
+body.home-story-active:has(.home-story) {
+  background: transparent;
+  --chapter-index-safe: 3.85rem;
+}
+
+body.home-story-active:has(.home-story) main {
+  background: transparent;
+}
+
+/* Spazio a sinistra così l’indice compatto non copre titoli e testi */
+body.home-story-active:has(.home-story--entered) :is(
+  .story-rail__head,
+  .story-talents__head,
+  .story-mentors__head,
+  .story-path__copy,
+  .story-statement__inner,
+  .story-vetrina__copy,
+  .story-newsletter__inner,
+  .story-scene__copy
+) {
+  padding-left: max(var(--editorial-pad), var(--chapter-index-safe)) !important;
+}
+
+body.home-story-active:has(.home-story--entered) .story-path__copy {
+  padding-left: max(calc(var(--editorial-pad) + 2rem), calc(var(--chapter-index-safe) + 1.5rem)) !important;
+}
+
+body.home-story-active .site-header__menu-btn {
+  border-color: rgba(244, 243, 238, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.home-story-active .scroll-progress {
+  --progress-track: var(--story-progress-track, color-mix(in srgb, var(--color-linen) 18%, transparent));
+  --progress-fill: var(--story-progress-fill, var(--accent-gold));
+}
+
+body.home-story-active .site-header__bar-link {
+  color: rgba(244, 243, 238, 0.86);
+}
+
+body.home-story-active .site-header__bar-link:hover {
+  color: #f4f3ee;
+}
+
+body.home-story-active .site-header__bar-link--active {
+  color: var(--accent-gold);
+}
+
+body.home-story-gate-open {
+  overflow: hidden;
+}
+
+/* Contatore scroll — basso a destra, lontano dall’hint hero */
+.scroll-pct {
+  top: auto;
+  left: auto;
+  right: clamp(1.1rem, 3vw, 2rem);
+  bottom: clamp(1.1rem, 3vh, 1.75rem);
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+body.home-story-active .scroll-pct__num {
+  background: linear-gradient(
+    165deg,
+    var(--accent-gold) 0%,
+    color-mix(in srgb, var(--sky) 75%, var(--accent-gold)) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+body.home-story-active .scroll-pct__label {
+  color: color-mix(in srgb, var(--color-linen) 48%, transparent);
+}

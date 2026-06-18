@@ -1,0 +1,157 @@
+/**
+ * THE 8th — palette chiaro / scuro
+ * Satoshi (titoli) · Helvetica (paragrafi)
+ */
+
+:root {
+  /* Brand core */
+  --color-linen: #f4f3ee;
+  --color-pearl: #faf9f5;
+  --color-ivory: #eeece6;
+  --color-glaucous: #6e7dab;
+  --color-glaucous-light: #95a3c8;
+  --color-glaucous-deep: #4f5d85;
+  --color-red: #ed1c24;
+  --color-red-soft: #ff3b42;
+  --color-amethyst: #1a0f38;
+  --color-amethyst-mid: #2a1a52;
+  --color-ink: #0c0818;
+  --color-gold-muted: #b5a078;
+  --color-mist: rgba(110, 125, 171, 0.12);
+
+  --font-display: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  /* Testi secondari: Jost (geometrica tipo Futura, pulita come SF Pro) */
+  --font-secondary: 'Jost', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+  --font-body: var(--font-secondary);
+  --font-ui: var(--font-body);
+
+  /* Light theme */
+  --bg: var(--color-pearl);
+  --bg-soft: var(--color-linen);
+  --bg-elevated: #ffffff;
+  --bg-inverse: var(--color-amethyst);
+  --text: var(--color-amethyst);
+  --text-muted: rgba(26, 15, 56, 0.62);
+  --text-subtle: rgba(26, 15, 56, 0.4);
+  --text-inverse: var(--color-linen);
+  --border: rgba(26, 15, 56, 0.08);
+  --border-strong: rgba(26, 15, 56, 0.14);
+
+  --sign-cta: var(--color-gold-muted);
+  --sign-info: var(--color-glaucous);
+  --sign-accent: var(--color-gold-muted);
+  --accent-primary: #3c7bff;
+  --accent-secondary: #b66bff;
+  --accent-soft: #d7e2ff;
+  --accent-ink: #0f1638;
+  --accent-highlight: #63ffd7;
+  --accent-gold: #d7b36a;
+
+  --header-bg: rgba(250, 249, 245, 0.9);
+  --header-text: var(--text);
+  --footer-bg: var(--color-amethyst);
+  --footer-text: var(--color-linen);
+  --newsletter-bg: var(--color-amethyst-mid);
+  --newsletter-text: var(--color-linen);
+
+  --hero-veil: linear-gradient(180deg, rgba(8, 14, 38, 0.18) 0%, rgba(10, 8, 24, 0.66) 100%);
+  --surface-aurora: radial-gradient(circle at 18% 18%, rgba(60, 123, 255, 0.2) 0%, transparent 42%),
+    radial-gradient(circle at 82% 10%, rgba(182, 107, 255, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(99, 255, 215, 0.1) 0%, transparent 42%);
+  --shadow-soft: 0 20px 60px rgba(26, 15, 56, 0.08);
+  --shadow-hover: 0 24px 70px rgba(26, 15, 56, 0.14);
+
+  --text-xs: 0.9375rem;
+  --text-sm: 1.0625rem;
+  --text-base: 1.2rem;
+  --text-lg: 1.35rem;
+  --text-xl: clamp(1.35rem, 2.6vw, 1.75rem);
+  --text-2xl: clamp(1.65rem, 3.5vw, 2.55rem);
+  --text-hero: clamp(3.25rem, 11vw, 6.5rem);
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 900;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.75rem;
+  --space-lg: 3.5rem;
+  --space-xl: clamp(4rem, 10vw, 7rem);
+
+  --radius-sm: 6px;
+  --radius-md: 16px;
+  --radius-xl: 28px;
+  --radius-2xl: 40px;
+
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-border: rgba(26, 15, 56, 0.1);
+  --glass-hero: rgba(12, 8, 24, 0.58);
+  --text-card-bg: color-mix(in srgb, var(--bg-elevated) 90%, var(--accent-secondary) 10%);
+  --text-card-border: color-mix(in srgb, var(--border-strong) 82%, transparent);
+  --text-card-lines: color-mix(in srgb, var(--text-subtle) 26%, transparent);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.45, 0, 0.15, 1);
+  --cursor-x: 50%;
+  --cursor-y: 50%;
+
+  --max-width: 1180px;
+  --max-narrow: 38rem;
+
+  /* Editorial — home + pagine interne */
+  --editorial-pad: clamp(1.25rem, 5vw, 3rem);
+  --editorial-max: min(52rem, 94vw);
+  --editorial-hero-title: clamp(2.85rem, 9vw, 6.25rem);
+  --editorial-page-title: clamp(2.65rem, 7.2vw, 5rem);
+  --editorial-card-title: clamp(2rem, 5.2vw, 3.1rem);
+  --editorial-body: clamp(1.15rem, 2.35vw, 1.4rem);
+  --editorial-eyebrow: clamp(0.95rem, 1.75vw, 1.1rem);
+}
+
+[data-theme='dark'] {
+  --bg: #0e0a18;
+  --bg-soft: #161024;
+  --bg-elevated: #1e1630;
+  --bg-inverse: var(--color-pearl);
+  --text: #edeae3;
+  --text-muted: rgba(237, 234, 227, 0.62);
+  --text-subtle: rgba(237, 234, 227, 0.38);
+  --text-inverse: var(--color-amethyst);
+  --border: rgba(237, 234, 227, 0.08);
+  --border-strong: rgba(237, 234, 227, 0.16);
+
+  --sign-cta: var(--accent-gold);
+  --sign-info: var(--color-glaucous-light);
+  --accent-primary: #6f95ff;
+  --accent-secondary: #c38eff;
+  --accent-soft: #dbe4ff;
+  --accent-ink: #0a102b;
+  --accent-highlight: #8affde;
+  --accent-gold: #e0be7a;
+
+  --header-bg: rgba(14, 10, 24, 0.92);
+  --header-text: var(--text);
+  --footer-bg: var(--color-linen);
+  --footer-text: var(--color-amethyst);
+  --newsletter-bg: #1a1230;
+
+  --color-mist: rgba(149, 163, 200, 0.1);
+  --hero-veil: linear-gradient(180deg, rgba(3, 8, 24, 0.24) 0%, rgba(2, 2, 8, 0.78) 100%);
+  --surface-aurora: radial-gradient(circle at 18% 14%, rgba(111, 149, 255, 0.24) 0%, transparent 44%),
+    radial-gradient(circle at 82% 8%, rgba(195, 142, 255, 0.2) 0%, transparent 42%),
+    radial-gradient(circle at 42% 90%, rgba(138, 255, 222, 0.14) 0%, transparent 42%);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 28px 80px rgba(0, 0, 0, 0.45);
+
+  --glass-bg: rgba(22, 16, 36, 0.72);
+  --glass-border: rgba(237, 234, 227, 0.12);
+  --glass-hero: rgba(8, 5, 16, 0.78);
+  --text-card-bg: color-mix(in srgb, var(--bg-elevated) 90%, var(--accent-primary) 10%);
+  --text-card-border: color-mix(in srgb, var(--border-strong) 78%, transparent);
+  --text-card-lines: color-mix(in srgb, var(--text-subtle) 34%, transparent);
+}

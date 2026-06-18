@@ -1,0 +1,68 @@
+/**
+ * Student & project pages aligned to Home story language.
+ * Neutral backgrounds, no inconsistent skin surfaces.
+ */
+
+body.home-story-active .page--student,
+body.home-story-active .project-page {
+  background: var(--story-bg) !important;
+  color: var(--story-text);
+}
+
+body.home-story-active .page--student::before,
+body.home-story-active .project-page::before {
+  opacity: 0.22;
+  filter: blur(26px);
+  background:
+    radial-gradient(circle at 16% 14%, rgba(244, 243, 238, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 80% 18%, rgba(181, 160, 120, 0.12) 0%, transparent 38%),
+    radial-gradient(circle at 45% 88%, rgba(110, 125, 171, 0.12) 0%, transparent 44%);
+}
+
+body.home-story-active .page--student::after,
+body.home-story-active .project-page::after {
+  opacity: 0.12;
+  background:
+    repeating-linear-gradient(
+      -24deg,
+      transparent 0 14px,
+      color-mix(in srgb, var(--story-text) 8%, transparent) 14px 15px
+    );
+}
+
+body.home-story-active .page--student .profile__name,
+body.home-story-active .page--student .profile__project,
+body.home-story-active .project-page__title {
+  color: var(--story-text);
+}
+
+body.home-story-active .page--student .profile__bio,
+body.home-story-active .project-page__concept,
+body.home-story-active .project-page__note,
+body.home-story-active .project-specs__row dd,
+body.home-story-active .student-proof__label,
+body.home-story-active .project-proof__label {
+  color: var(--story-text-muted);
+}
+
+body.home-story-active .page--student .profile__social,
+body.home-story-active .project-specs__row dt {
+  color: color-mix(in srgb, var(--story-text) 62%, var(--accent-gold) 38%);
+}
+
+body.home-story-active .project-links,
+body.home-story-active .project-specs {
+  border-color: var(--story-border);
+}
+
+body.home-story-active .student-proof__item,
+body.home-story-active .project-proof__item {
+  border-color: var(--story-border);
+  background:
+    repeating-linear-gradient(
+      -24deg,
+      transparent 0 13px,
+      color-mix(in srgb, var(--story-text) 8%, transparent) 13px 14px
+    ),
+    var(--story-surface);
+}
