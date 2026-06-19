@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { locale } from '$lib/i18n';
-	import { canonicalUrl, fullTitle, resolveSeo, type SeoMeta } from '$lib/seo';
+	import { canonicalUrl, fullTitle, resolveSeo, SITE_NOINDEX, type SeoMeta } from '$lib/seo';
 
 	let {
 		meta
@@ -19,7 +19,7 @@
 	<title>{title}</title>
 	<meta name="description" content={resolved.description} />
 	<link rel="canonical" href={url} />
-	{#if resolved.noindex}
+	{#if SITE_NOINDEX || resolved.noindex}
 		<meta name="robots" content="noindex, nofollow" />
 	{/if}
 	<meta property="og:type" content={resolved.type ?? 'website'} />

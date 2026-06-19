@@ -3,6 +3,9 @@ import { tFor } from '$lib/i18n';
 
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL ?? 'https://the8.example.com';
 
+/** Imposta a false quando il sito deve essere indicizzato dai motori di ricerca. */
+export const SITE_NOINDEX = true;
+
 export type SeoMeta = {
 	title: string;
 	description: string;
