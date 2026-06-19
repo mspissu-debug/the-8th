@@ -7,4 +7,4 @@
   $: lede = 'Archivio della prima edizione THE 8th — quattro talenti, quattro mentor, dodici mesi di laboratorio.';
 </script>
 
-<EditionStory title={title} lede={lede} code="// Edizione 01" heroImages={allFinished.slice(0, 10)} showPairs={true} />
+<EditionStory title={title} lede={lede} code="// Edizione 01" heroImages={allFinished.slice(0, 10)} showPairs={true} variant="archive" />

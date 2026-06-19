@@ -222,6 +222,17 @@ export const messages = {
       vetrinaTitle: 'Vicenzaoro Design Room',
       vetrinaLede:
         'Le collezioni finite presentate in Design Room a Vicenzaoro — edizione 2025–2026. Il palco internazionale del distretto orafo.',
+      vicenzaoroPageTitle: 'Vicenzaoro Design Room',
+      vicenzaoroPageLede:
+        'La fiera internazionale del gioiello dove THE 8th porta le collezioni dei talenti davanti al mercato globale.',
+      vicenzaoroWhatTitle: "Cos'è Vicenzaoro",
+      vicenzaoroWhatBody:
+        'Vicenzaoro è la principale fiera internazionale dedicata al gioiello, organizzata da Italian Exhibition Group (IEG) a Vicenza. Si tiene due volte l\'anno e richiama buyer, brand e operatori da tutto il mondo: non è solo una vetrina commerciale, ma il punto d\'incontro del distretto orafo globale — tra alta gioielleria, design contemporaneo e innovazione produttiva.',
+      vicenzaoroDesignRoomTitle: 'La Design Room e THE 8th',
+      vicenzaoroDesignRoomBody:
+        'All\'interno di Vicenzaoro, la Design Room è lo spazio dedicato al design contemporaneo e alle nuove generazioni. È qui che i quattro talenti di THE 8th presentano le collezioni finite dopo un anno di mentorship: davanti a buyer internazionali, giornalisti e professionisti del settore — il palco dove il riscatto diventa visibile.',
+      vicenzaoroLink: 'Scopri Vicenzaoro →',
+      vicenzaoroTalentsTitle: 'I talenti in vetrina',
       partnersTitle: 'Aziende partner',
       partnersLede: 'Chi affianca talenti, formazione e vetrina internazionale.',
       openCallLabel: 'Edizione 2026',
@@ -578,6 +589,17 @@ export const messages = {
       vetrinaTitle: 'Vicenzaoro Design Room',
       vetrinaLede:
         'Finished collections at Vicenzaoro Design Room — 2025–2026 edition. The international jewellery district as THE 8th’s stage.',
+      vicenzaoroPageTitle: 'Vicenzaoro Design Room',
+      vicenzaoroPageLede:
+        'The international jewellery fair where THE 8th presents the talents’ collections to the global market.',
+      vicenzaoroWhatTitle: 'What is Vicenzaoro',
+      vicenzaoroWhatBody:
+        'Vicenzaoro is the leading international trade fair dedicated to jewellery, organised by Italian Exhibition Group (IEG) in Vicenza. Held twice a year, it brings together buyers, brands and operators from around the world — not only a commercial showcase, but the meeting point of the global jewellery district, spanning high jewellery, contemporary design and production innovation.',
+      vicenzaoroDesignRoomTitle: 'The Design Room and THE 8th',
+      vicenzaoroDesignRoomBody:
+        'Within Vicenzaoro, the Design Room is the space devoted to contemporary design and new generations. This is where THE 8th’s four talents present their finished collections after a year of mentorship — before international buyers, press and industry professionals: the stage where redemption becomes visible.',
+      vicenzaoroLink: 'Discover Vicenzaoro →',
+      vicenzaoroTalentsTitle: 'Talents on show',
       partnersTitle: 'Partner companies',
       partnersLede: 'Who supports talents, training and the international showcase.',
       openCallLabel: '2026 edition',

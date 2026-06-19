@@ -1,10 +1,16 @@
 <script>
   import EditionStory from '$lib/components/editions/EditionStory.svelte';
-  import { storyHeroImages } from '$lib/data/home-story.js';
+  import { storyVetrinaSlides } from '$lib/data/home-story.js';
   import { t } from '$lib/i18n';
 
-  $: title = $t('home.edizioniTitle') + ' 2025–2026';
-  $: lede = $t('home.edizioniLead') + ' · Vicenzaoro Design Room';
+  $: title = $t('pages.vicenzaoroPageTitle');
+  $: lede = $t('pages.vicenzaoroPageLede');
 </script>
 
-<EditionStory {title} {lede} code="// Edizione 02" heroImages={storyHeroImages} showPairs={true} />
+<EditionStory
+  {title}
+  {lede}
+  code="// 13 · Vicenzaoro"
+  heroImages={storyVetrinaSlides.slice(0, 8)}
+  showPairs={true}
+/>
