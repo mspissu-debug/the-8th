@@ -241,7 +241,8 @@
 
 <style>
   .open-call-form {
-    max-width: 42rem;
+    width: 100%;
+    max-width: none;
   }
 
   .open-call-form__progress {
@@ -251,7 +252,8 @@
     gap: 1rem;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--story-border);
+    border-bottom: 1px solid color-mix(in srgb, var(--accent-gold) 22%, var(--story-border));
+    width: 100%;
   }
 
   .open-call-form__step-label {
@@ -339,9 +341,9 @@
     gap: 1.35rem;
   }
 
-  @media (min-width: 720px) {
+  @media (min-width: 900px) {
     .open-call-form__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 

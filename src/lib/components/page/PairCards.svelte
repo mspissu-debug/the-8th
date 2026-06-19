@@ -1,15 +1,17 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { reveal } from '$lib/reveal';
-	import { EDITION_PAIRS } from '$lib/data/pairs';
 
 	let gridIn = $state(false);
+
+	const pairs = $derived($page.data.editionPairs ?? []);
 </script>
 
 <div
 	class="story-pairs"
 	use:reveal={{ variant: 'fade', threshold: 0.1, onInView: () => (gridIn = true) }}
 >
-	{#each EDITION_PAIRS as pair, i (pair.studentSlug)}
+	{#each pairs as pair, i (pair.studentSlug)}
 		<a
 			class="story-pairs__card home-stagger"
 			class:in-view={gridIn}

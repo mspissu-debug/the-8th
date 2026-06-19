@@ -7,8 +7,7 @@
   import StoryTalentNav from '$lib/components/story/StoryTalentNav.svelte';
   import HomeStoryNewsletter from '$lib/components/home/HomeStoryNewsletter.svelte';
   import HomeStoryFooter from '$lib/components/home/HomeStoryFooter.svelte';
-  import { getTalentNeighborsFromList, talents as builtinTalents } from '$lib/data/talents.js';
-  import { EDITION_PAIRS } from '$lib/data/pairs.js';
+  import { getTalentNeighborsFromList } from '$lib/data/talents.js';
   import { studentProductionPhases } from '$lib/data/student-phases.js';
   import PageNav from '$lib/components/PageNav.svelte';
   import { trailStudent } from '$lib/navigation/trails.js';
@@ -22,13 +21,13 @@
   export let student;
 
   $: isEn = $locale === 'en';
-  $: talentList = $page.data.talents?.length ? $page.data.talents : builtinTalents;
+  $: talentList = $page.data.talents ?? [];
   $: studentPitch =
     isEn && student.pitchEn ? student.pitchEn : student.pitchIt ?? student.pitch;
   $: neighbors = getTalentNeighborsFromList(talentList, student.slug);
   $: index = neighbors.index >= 0 ? neighbors.index : 0;
   $: total = talentList.length;
-  $: pair = EDITION_PAIRS.find((p) => p.studentSlug === student.slug);
+  $: pair = ($page.data.editionPairs ?? []).find((p) => p.studentSlug === student.slug);
   $: tag = `T.${String(index + 1).padStart(2, '0')}`;
 
   $: roleLine = `| ${student.project} · <strong>THE 8th · ${$t('people.editionYear')}</strong>`;

@@ -1,0 +1,264 @@
+/**
+ * Tipografia e posizione testi editoriali — allineate a home path / story-talents.
+ * Applicato a liste talenti/mentor e profili singoli.
+ */
+
+.story-page {
+	background: var(--story-bg);
+	color: var(--story-text);
+}
+
+/* Intestazioni: full width, allineamento sinistra (come story-path bottom-left) */
+.story-page .story-editorial-head__inner,
+.story-page .people-page-head__inner,
+.story-page .story-talents__head,
+.story-page .story-mentors__head,
+.story-page .people-phases__inner,
+.story-page .people-recognitions__inner,
+.story-page .story-peer-nav__head {
+	max-width: none;
+	width: 100%;
+	margin-inline: 0;
+	text-align: left;
+}
+
+.story-page .people-page-head {
+	padding: clamp(1.25rem, 3vh, 1.75rem) var(--editorial-pad) clamp(2rem, 5vh, 3rem);
+	border-bottom: 1px solid var(--story-border);
+}
+
+.story-page .people-page-head--after-nav {
+	padding-top: clamp(1rem, 2.5vh, 1.35rem);
+}
+
+/* Code label — stile home */
+.story-page .story-editorial-head__code,
+.story-page .people-page-head__code,
+.story-page .story-talents__code,
+.story-page .story-mentors__code,
+.story-page .people-phases__code,
+.story-page .people-recognitions__code,
+.story-page .story-peer-nav__code {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label);
+	letter-spacing: 0.04em;
+	text-transform: none;
+	opacity: 0.55;
+	color: color-mix(in srgb, var(--color-linen, var(--story-text)) 100%, transparent);
+}
+
+/* Titoli sezione */
+.story-page :is(
+	.story-editorial-head__title,
+	.people-page-head__title,
+	.story-talents__title,
+	.story-mentors__title,
+	.people-phases__title,
+	.people-recognitions__title,
+	.story-peer-nav__title
+) {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: var(--weight-black, 700);
+	font-size: var(--type-section-title);
+	letter-spacing: -0.02em;
+	text-transform: none;
+	line-height: 1.08;
+	text-wrap: balance;
+	color: var(--story-text, var(--color-linen));
+}
+
+.story-page :is(
+	.story-editorial-head__title,
+	.people-page-head__title,
+	.story-talents__title,
+	.story-mentors__title,
+	.people-phases__title,
+	.people-recognitions__title,
+	.story-peer-nav__title
+) :global(.motion-words__word) {
+	overflow: visible;
+	padding-bottom: 0.05em;
+}
+
+/* Lede / corpo intro */
+.story-page .story-editorial-head__lede,
+.story-page .people-page-head__lede,
+.story-page .story-talents__lede,
+.story-page .story-mentors__lede,
+.story-page .story-peer-nav__lede {
+	margin: 1rem 0 0;
+	max-width: min(38rem, 92vw);
+	font-family: var(--font-body);
+	font-size: var(--editorial-body);
+	line-height: 1.62;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: color-mix(in srgb, var(--story-text-muted, var(--color-linen)) 78%, transparent);
+}
+
+/* Griglie liste — full width */
+.story-page .story-talents__grid,
+.story-page .story-mentors__grid,
+.story-page .story-peer-nav__grid,
+.story-page .story-peer-nav__flow {
+	max-width: none;
+	width: 100%;
+	margin-inline: 0;
+}
+
+.talents-story .story-talents,
+.mentors-story .story-mentors {
+	padding: clamp(1.25rem, 3.5vh, 2rem) var(--editorial-pad) clamp(3rem, 8vh, 4.5rem);
+}
+
+.talents-story .story-talents__head,
+.mentors-story .story-mentors__head {
+	margin-bottom: clamp(1.35rem, 3vh, 2rem);
+}
+
+/* Meta profilo singolo — stesso padding orizzontale */
+.story-page .people-profile-meta {
+	max-width: none;
+	width: 100%;
+	padding: 0.65rem var(--editorial-pad) 0.85rem;
+	font-size: var(--type-label);
+	letter-spacing: 0.04em;
+	opacity: 0.55;
+}
+
+.story-page .people-profile-meta__trail {
+	opacity: 1;
+	color: color-mix(in srgb, var(--color-linen, var(--story-text)) 72%, transparent);
+}
+
+/* Sezioni interne — padding uniforme */
+.story-page .people-phases,
+.story-page .people-recognitions,
+.story-page .story-peer-nav.story-talents,
+.story-page .story-peer-nav.story-peer-nav--mentor {
+	padding-left: var(--editorial-pad);
+	padding-right: var(--editorial-pad);
+}
+
+.story-page .people-recognitions__title {
+	margin-bottom: clamp(1.1rem, 3vh, 1.75rem);
+}
+
+.story-page .people-recognitions__code {
+	margin-bottom: 0.75rem;
+}
+
+.story-page .story-peer-nav__head {
+	margin-bottom: clamp(1.25rem, 3vh, 1.75rem);
+}
+
+.story-page .story-peer-nav__lede {
+	max-width: min(38rem, 92vw);
+}
+
+/* —— Chiusura home + pagine istituzionali (full width) —— */
+.story-vetrina__copy,
+.story-newsletter__inner,
+.story-newsletter__copy,
+.story-footer__inner,
+.ai-strip__inner,
+.open-call-story__inner,
+.contact-story__lanes,
+.edition-story__pairs,
+.edition-story__vetrina {
+	max-width: none;
+	width: 100%;
+	margin-inline: 0;
+	text-align: left;
+}
+
+.story-vetrina__code,
+.story-newsletter__code,
+.story-footer__col-title,
+.ai-strip__eyebrow {
+	margin: 0 0 0.75rem;
+	font-family: var(--font-body);
+	font-size: var(--type-label);
+	letter-spacing: 0.04em;
+	text-transform: none;
+	opacity: 0.55;
+	color: color-mix(in srgb, var(--color-linen, var(--story-text)) 100%, transparent);
+}
+
+.story-vetrina :global(.story-vetrina__title),
+.story-newsletter :global(.story-newsletter__title),
+.story-footer__tagline,
+.ai-strip__title,
+.open-call-story :global(.open-call-story__title),
+.contact-story :global(.contact-story__lanes-title),
+.edition-story :global(.edition-story__pairs-title) {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: var(--weight-black, 700);
+	font-size: var(--type-section-title);
+	letter-spacing: -0.02em;
+	text-transform: none;
+	line-height: 1.08;
+	text-wrap: balance;
+	color: var(--story-text, var(--color-linen));
+}
+
+.story-vetrina__body,
+.story-newsletter__text,
+.ai-strip__lede,
+.open-call-story__lede {
+	margin: 1rem 0 0;
+	max-width: min(42rem, 92vw);
+	font-family: var(--font-body);
+	font-size: var(--editorial-body);
+	line-height: 1.62;
+	letter-spacing: 0.02em;
+	color: color-mix(in srgb, var(--story-text-muted, var(--color-linen)) 78%, transparent);
+}
+
+.story-newsletter,
+.story-footer,
+.ai-strip,
+.open-call-story__form,
+.contact-story__lanes,
+.edition-story__pairs {
+	padding-left: var(--editorial-pad);
+	padding-right: var(--editorial-pad);
+}
+
+.open-call-form {
+	max-width: none;
+	width: 100%;
+}
+
+.open-call-form__grid {
+	width: 100%;
+}
+
+@media (min-width: 900px) {
+	.open-call-form__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.open-call-form__commitment,
+	.open-call-form__nav,
+	.open-call-form__progress {
+		max-width: none;
+	}
+}
+
+.contact-story__lanes-grid {
+	max-width: none;
+	width: 100%;
+}
+
+.contact-story__social {
+	max-width: none;
+	width: 100%;
+}
+
+.edition-story__vetrina :global(.story-vetrina) {
+	min-height: auto;
+}

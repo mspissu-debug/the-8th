@@ -1,6 +1,6 @@
 <script>
   import StoryHero from '$lib/components/story/StoryHero.svelte';
-  import MotionWords from '$lib/components/MotionWords.svelte';
+  import MotionIgniteWords from '$lib/components/MotionIgniteWords.svelte';
   import OpenCallForm from './OpenCallForm.svelte';
   import HomeStoryFooter from '$lib/components/home/HomeStoryFooter.svelte';
   import { aboutHeroImages, storyTones } from '$lib/data/home-story.js';
@@ -31,14 +31,15 @@
     aria-labelledby="open-call-form-title"
     use:reveal={{ variant: 'clip-up', threshold: 0.08, onInView: () => (formIn = true) }}
   >
-    <div class="open-call-story__inner home-stagger" class:in-view={formIn}>
-      <p class="story-page__eyebrow">// 01 · {$t('openCall.step1Title')}</p>
-      <MotionWords
+    <div class="open-call-story__inner story-editorial-head home-stagger" class:in-view={formIn}>
+      <p class="story-editorial-head__code open-call-story__code">// 01 · {$t('openCall.step1Title')}</p>
+      <MotionIgniteWords
         as="h2"
         id="open-call-form-title"
-        className="story-page__heading open-call-story__title"
+        className="open-call-story__title story-editorial-head__title"
         text={$t('pages.openCallTitle')}
       />
+      <p class="open-call-story__lede story-editorial-head__lede">{$t('pages.openCallLede')}</p>
       <OpenCallForm />
     </div>
   </section>
@@ -48,17 +49,19 @@
 
 <style>
   .open-call-story__form {
+    width: 100%;
     padding: clamp(3.5rem, 10vh, 5.5rem) var(--editorial-pad);
   }
 
   .open-call-story__inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(1.25rem);
     transition:
-      opacity 0.7s var(--ease-ribbit),
-      transform 0.7s var(--ease-ribbit);
+      opacity 0.85s var(--ease-ribbit),
+      transform 0.85s var(--ease-ribbit);
   }
 
   .open-call-story__inner.in-view {
@@ -66,7 +69,15 @@
     transform: translateY(0);
   }
 
+  .open-call-story__code {
+    margin-bottom: 0.75rem;
+  }
+
   .open-call-story :global(.open-call-story__title) {
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .open-call-story__lede {
+    margin-bottom: clamp(2rem, 5vh, 2.75rem);
   }
 </style>

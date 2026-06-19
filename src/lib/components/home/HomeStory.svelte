@@ -23,7 +23,6 @@
     storyOrbitImages,
     storyPathCoverImages,
     storyWorks,
-    storyTalents as builtinStoryTalents,
     storyVetrinaSlides
   } from '$lib/data/home-story.js';
   import { buildStoryTalentsFromShowcases } from '$lib/data/home-story-build.js';
@@ -34,16 +33,14 @@
   } from '$lib/data/home-chapters.js';
   import { t } from '$lib/i18n';
 
-  $: storyTalents = $page.data.showcases?.length
-    ? buildStoryTalentsFromShowcases($page.data.showcases)
-    : builtinStoryTalents;
+  $: storyTalents = buildStoryTalentsFromShowcases($page.data.showcases ?? []);
 
   let entered = false;
 
   /** @type {HTMLElement | null} */
   let pathSection = null;
 
-  const PATH_SCROLL_VH = 2.2;
+  const PATH_SCROLL_VH = 2.75;
 
   $: pathSteps = buildHomePathSteps($t, storyPathCoverImages);
   $: homeChapters = buildHomeIndexChapters($t);

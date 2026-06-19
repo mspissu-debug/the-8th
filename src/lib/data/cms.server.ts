@@ -1,91 +1,74 @@
 import { fetchMentorsFromSanity, fetchTalentsFromSanity } from '$lib/sanity/fetch.server';
 import { mapSanityMentor, mapSanityTalent } from '$lib/sanity/map';
-import { mentors as staticMentors } from './mentors.js';
-import { getBuiltinShowcases, getBuiltinTalentEntries } from './showcase-registry.js';
 
-type Mentor = (typeof staticMentors)[number];
+export type CmsMentor = ReturnType<typeof mapSanityMentor>;
+export type CmsShowcase = ReturnType<typeof mapSanityTalent>;
 
-/** Non sovrascrivere campi statici con valori vuoti da Sanity. */
-function mergeDefined<T extends Record<string, unknown>>(
-	base: T | undefined,
-	patch: Partial<T>
-): T {
-	const out = { ...(base ?? {}) } as T;
-	for (const [key, value] of Object.entries(patch)) {
-		if (value === null || value === undefined || value === '') continue;
-		if (Array.isArray(value) && value.length === 0) continue;
-		(out as Record<string, unknown>)[key] = value;
-	}
-	return out;
+export type EditionPair = {
+	studentSlug: string;
+	studentName: string;
+	studentProject: string;
+	studentPortrait: string;
+	mentorSlug: string;
+	mentorName: string;
+	mentorImage: string;
+};
+
+/** Coppie edizione da ordine CMS (talenti × mentor). */
+export function buildEditionPairs(showcases: CmsShowcase[], mentors: CmsMentor[]): EditionPair[] {
+	const students = [...showcases].sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+	const orderedMentors = [...mentors].sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+
+	return students.map((student, i) => {
+		const mentor = orderedMentors[i];
+		return {
+			studentSlug: student.slug,
+			studentName: student.name,
+			studentProject: student.project ?? '',
+			studentPortrait: student.portrait ?? '',
+			mentorSlug: mentor?.slug ?? '',
+			mentorName: mentor?.name ?? '',
+			mentorImage: mentor?.image ?? mentor?.portrait ?? ''
+		};
+	});
 }
 
-function mergeMentors(sanityMentors: ReturnType<typeof mapSanityMentor>[]): Mentor[] {
-	const bySlug = new Map(staticMentors.map((m) => [m.slug, m]));
-	for (const mapped of sanityMentors) {
-		const existing = bySlug.get(mapped.slug);
-		bySlug.set(mapped.slug, mergeDefined(existing, mapped) as Mentor);
-	}
-	return [...bySlug.values()].sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
-}
-
-function mergeShowcases(sanityTalents: ReturnType<typeof mapSanityTalent>[]) {
-	const staticShowcases = getBuiltinShowcases();
-	const bySlug = new Map(staticShowcases.map((s) => [s.slug, s]));
-
-	for (const mapped of sanityTalents) {
-		const existing = bySlug.get(mapped.slug);
-		if (existing) {
-			bySlug.set(mapped.slug, {
-				...mergeDefined(existing, mapped),
-				skin: existing.skin,
-				projects: existing.projects,
-				projectDetails: existing.projectDetails,
-				source: existing.source
-			});
-		} else {
-			bySlug.set(mapped.slug, {
-				...mapped,
-				skin: mapped.skin || 'default',
-				source: 'custom'
-			});
-		}
-	}
-
-	return [...bySlug.values()];
-}
-
-export async function loadMentors(): Promise<Mentor[]> {
+/** Mentor — solo Sanity Studio. */
+export async function loadMentors(): Promise<CmsMentor[]> {
 	const docs = await fetchMentorsFromSanity();
-	if (!docs?.length) return staticMentors;
-	return mergeMentors(docs.map(mapSanityMentor));
+	if (!docs?.length) {
+		console.warn(
+			'[THE 8th · Sanity] Nessun mentor pubblicato. Aggiungi contenuti in Studio o verifica SANITY_API_READ_TOKEN.'
+		);
+		return [];
+	}
+	return docs.map(mapSanityMentor);
 }
 
-export async function loadShowcases() {
+/** Talenti / showcase — solo Sanity Studio. */
+export async function loadShowcases(): Promise<CmsShowcase[]> {
 	const docs = await fetchTalentsFromSanity();
-	if (!docs?.length) return getBuiltinShowcases();
-	return mergeShowcases(docs.map(mapSanityTalent));
+	if (!docs?.length) {
+		console.warn(
+			'[THE 8th · Sanity] Nessun talento pubblicato. Aggiungi contenuti in Studio o verifica SANITY_API_READ_TOKEN.'
+		);
+		return [];
+	}
+	return docs.map(mapSanityTalent);
 }
 
-type Showcase = Awaited<ReturnType<typeof loadShowcases>>[number];
-
-export function loadTalentEntries(showcases: Showcase[]) {
+export function loadTalentEntries(showcases: CmsShowcase[]) {
 	return showcases.map((s) => ({
 		slug: s.slug,
 		href: `/students/${s.slug}`,
 		name: s.name,
-		project: s.project,
+		project: s.project ?? '',
 		portrait: s.portrait,
 		image: s.portrait
 	}));
 }
 
-/** Shortcut quando serve solo l’elenco statico + eventuale Sanity. */
 export async function loadTalentEntriesFromCms() {
 	const showcases = await loadShowcases();
 	return loadTalentEntries(showcases);
-}
-
-/** Per compatibilità con codice che importava solo i builtin. */
-export function getBuiltinTalentEntriesList() {
-	return getBuiltinTalentEntries();
 }

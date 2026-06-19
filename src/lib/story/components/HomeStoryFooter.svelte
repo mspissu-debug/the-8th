@@ -74,6 +74,7 @@
 
 <style>
   .story-footer {
+    width: 100%;
     background: var(--story-bg);
     color: color-mix(in srgb, var(--color-linen) 88%, transparent);
     padding: clamp(4rem, 10vh, 5.5rem) var(--editorial-pad) 2.5rem;
@@ -82,8 +83,9 @@
   }
 
   .story-footer__inner {
-    max-width: var(--editorial-max);
-    margin: 0 auto;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
   }
 
   .story-footer__tagline {

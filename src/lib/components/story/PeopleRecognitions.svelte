@@ -28,9 +28,14 @@
 >
   <div class="people-recognitions__inner">
     {#if sectionCode}
-      <p class="people-recognitions__code">{sectionCode}</p>
+      <p class="people-recognitions__code story-editorial-head__code">{sectionCode}</p>
     {/if}
-    <MotionWords as="h2" id="people-recognitions-title" className="people-recognitions__title" text={title} />
+    <MotionWords
+      as="h2"
+      id="people-recognitions-title"
+      className="people-recognitions__title story-editorial-head__title"
+      text={title}
+    />
 
     <ul class="people-recognitions__list">
       {#each items as item, i (item.roman)}

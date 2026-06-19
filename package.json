@@ -10,6 +10,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "seed:sanity": "node --env-file=.env scripts/seed-sanity.mjs",
     "sanity:status": "node --env-file=.env scripts/sanity-status.mjs",
+    "sanity:upload-assets": "node --env-file=.env scripts/upload-sanity-assets.mjs",
     "studio": "npm run dev --prefix studio",
     "studio:deploy": "npm run deploy --prefix studio"
   },

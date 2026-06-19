@@ -24,7 +24,7 @@ function showcase(slug, name, project, skin, pitch, projects) {
 
 export const elenaShowcase = showcase(
   'elena',
-  'Elena Scala',
+  'Elena Moscara',
   'Meta-Florea',
   'florea',
   'Meta-Florea esplora la metamorfosi tra natura e gioiello: forme organiche, materiali vivi e una collezione pensata per la vetrina di Vicenzaoro.'

@@ -3,7 +3,8 @@
   import HomeStoryStatement from '$lib/components/home/HomeStoryStatement.svelte';
   import HomeStoryNewsletter from '$lib/components/home/HomeStoryNewsletter.svelte';
   import HomeStoryFooter from '$lib/components/home/HomeStoryFooter.svelte';
-  import FilmCarousel from '$lib/components/FilmCarousel.svelte';
+  import HomeStoryVetrina from '$lib/components/home/HomeStoryVetrina.svelte';
+  import MotionIgniteWords from '$lib/components/MotionIgniteWords.svelte';
   import PairCards from '$lib/components/page/PairCards.svelte';
   import { storyTones, storyVetrinaSlides } from '$lib/data/home-story.js';
   import { trailSite, backFromSite } from '$lib/navigation/trails.js';
@@ -50,19 +51,29 @@
 
   {#if showPairs}
     <section class="edition-story__pairs story-page__section--soft" aria-label="Coppie edizione">
-      <p class="story-page__eyebrow edition-story__pairs-eyebrow">// 02 · {$t('nav.talents')}</p>
+      <div class="edition-story__pairs-head story-editorial-head">
+        <p class="story-editorial-head__code edition-story__pairs-eyebrow">// 02 · {$t('nav.talents')}</p>
+        <MotionIgniteWords
+          as="h2"
+          className="edition-story__pairs-title story-editorial-head__title"
+          text={$t('home.edizioniTitle')}
+        />
+      </div>
       <PairCards />
     </section>
   {/if}
 
-  <section class="edition-story__vetrina story-page__section--void" aria-label="Vetrina">
-    <FilmCarousel
-      label={$t('home.vetrinaTitle')}
+  <div class="edition-story__vetrina">
+    <HomeStoryVetrina
       images={storyVetrinaSlides}
-      aspect="wide"
-      intervalMs={5200}
+      bg={storyTones.charcoal}
+      sectionCode="// 03"
+      sectionDomId="edition-vetrina"
+      badge={$t('home.vetrinaTitle')}
+      titleText={$t('home.vetrinaTitle')}
+      bodyText={$t('home.storyVetrinaBody')}
     />
-  </section>
+  </div>
 
   <HomeStoryNewsletter bg={storyTones.ash} />
 
@@ -71,13 +82,19 @@
 
 <style>
   .edition-story__pairs {
+    width: 100%;
     padding: clamp(4rem, 12vh, 6rem) var(--editorial-pad);
   }
 
-  .edition-story__pairs-eyebrow {
-    margin-bottom: 2rem;
-    max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
+  .edition-story__pairs-head {
+    margin-bottom: clamp(2rem, 5vh, 2.75rem);
+  }
+
+  .edition-story__vetrina {
+    width: 100%;
+  }
+
+  .edition-story__vetrina :global(.story-vetrina) {
+    scroll-margin-top: 0;
   }
 </style>

@@ -1,16 +1,20 @@
 <script>
-  import { talents } from '$lib/data/talents.js';
+  import { page } from '$app/stores';
+  import { talents as builtinTalents } from '$lib/data/talents.js';
   import { partners } from '$lib/data/partners.js';
   import { siteLinks, footerExploreLinks } from '$lib/data/site-links.js';
   import AiAssistantsStrip from '$lib/components/AiAssistantsStrip.svelte';
   import LocaleToggle from '$lib/components/LocaleToggle.svelte';
+  import MotionIgniteWords from '$lib/components/MotionIgniteWords.svelte';
   import { t } from '$lib/i18n';
 
   /** @type {string} */
   export let bg = '#06060a';
 
-  /** Layout largo come le sezioni home (mentor/talenti). */
+  /** @deprecated Ignored — footer is always full viewport width. */
   export let wide = false;
+
+  $: talentList = $page.data.talents?.length ? $page.data.talents : builtinTalents;
 
   $: explore = footerExploreLinks.map((link) => ({
     href: link.href,
@@ -20,9 +24,14 @@
 
 <AiAssistantsStrip {bg} {wide} />
 
-<footer class="story-footer" class:story-footer--wide={wide} id="home-footer" style="--story-bg: {bg}">
+<footer class="story-footer" id="home-footer" style="--story-bg: {bg}">
   <div class="story-footer__inner">
-    <p class="story-footer__tagline">{$t('footer.tagline')}</p>
+    <MotionIgniteWords
+      as="p"
+      className="story-footer__tagline"
+      text={$t('footer.tagline')}
+      delay={40}
+    />
 
     <div class="story-footer__cols">
       <div>
@@ -44,9 +53,9 @@
       <div>
         <p class="story-footer__col-title">{$t('footer.talentsEdition')}</p>
         <ul>
-          {#each talents as talent}
+          {#each talentList as talent}
             <li>
-              <a href={talent.href}>{talent.name}</a>
+              <a href={talent.href ?? `/students/${talent.slug}`}>{talent.name}</a>
               <span>{talent.project}</span>
             </li>
           {/each}
@@ -81,38 +90,35 @@
 
 <style>
   .story-footer {
+    width: 100%;
     background: var(--story-bg);
     color: color-mix(in srgb, var(--color-linen) 88%, transparent);
     padding: clamp(4rem, 10vh, 5.5rem) var(--editorial-pad)
       calc(2.5rem + var(--persistent-cta-safe, 0px));
     scroll-margin-top: 2rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-linen) 8%, transparent);
   }
 
   .story-footer__inner {
-    max-width: var(--editorial-max);
-    margin: 0 auto;
-  }
-
-  .story-footer--wide .story-footer__inner {
-    max-width: var(--max-width);
     width: 100%;
+    max-width: none;
+    margin-inline: 0;
   }
 
-  .story-footer__tagline {
-    margin: 0 0 2rem;
-    font-family: var(--font-display);
-    font-size: clamp(1rem, 2.2vw, 1.35rem);
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    max-width: 28ch;
-    line-height: 1.2;
+  .story-footer :global(.story-footer__tagline) {
+    margin: 0 0 clamp(2rem, 5vh, 2.75rem);
+    max-width: min(22ch, 92vw);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-transform: none;
     color: var(--color-linen);
   }
 
   .story-footer__cols {
     display: grid;
-    gap: 1.5rem;
+    gap: clamp(1.5rem, 4vw, 2.25rem);
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
   }
 
   @media (min-width: 900px) {
@@ -122,11 +128,9 @@
   }
 
   .story-footer__col-title {
-    margin: 0 0 0.55rem;
-    font-size: 0.58rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.45;
+    margin: 0 0 0.65rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
   }
 
   .story-footer ul {
@@ -136,12 +140,13 @@
   }
 
   .story-footer li {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.45rem;
   }
 
   .story-footer a {
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
+    font-size: var(--type-link);
+    letter-spacing: 0.02em;
+    text-transform: none;
     transition: color 0.2s ease;
   }
 
@@ -151,23 +156,25 @@
 
   .story-footer li span {
     display: block;
-    font-size: 0.62rem;
+    font-size: var(--type-label);
     opacity: 0.45;
-    margin-top: 0.1rem;
+    margin-top: 0.12rem;
+    letter-spacing: 0.02em;
   }
 
   .story-footer__bar {
-    margin-top: 2rem;
+    margin-top: clamp(2rem, 5vh, 2.75rem);
     padding-top: 1rem;
     border-top: 1px solid color-mix(in srgb, var(--color-linen) 10%, transparent);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.75rem 1.25rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: var(--type-label);
+    letter-spacing: 0.04em;
+    text-transform: none;
     opacity: 0.55;
+    width: 100%;
   }
 
   .story-footer__locale {

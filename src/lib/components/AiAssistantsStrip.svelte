@@ -6,12 +6,14 @@
     getAiAssistantPrompt,
     resolveAiContext
   } from '$lib/data/ai-assistant-contexts.js';
+  import MotionIgniteWords from '$lib/components/MotionIgniteWords.svelte';
+  import MotionBlock from '$lib/components/MotionBlock.svelte';
   import { locale, t } from '$lib/i18n';
 
   /** @type {string} */
   export let bg = '#06060a';
 
-  /** Layout largo come le sezioni home (mentor/talenti). */
+  /** @deprecated Ignored — strip is always full viewport width. */
   export let wide = false;
 
   $: pageVars = {
@@ -41,17 +43,14 @@
   }));
 </script>
 
-<section
-  class="ai-strip"
-  class:ai-strip--wide={wide}
-  style="--story-bg: {bg}"
-  aria-label={ariaLabel}
->
+<section class="ai-strip" style="--story-bg: {bg}" aria-label={ariaLabel}>
   <div class="ai-strip__inner">
-    <div class="ai-strip__copy">
-      <p class="ai-strip__eyebrow">{eyebrow}</p>
-      <p class="ai-strip__title">{title}</p>
-      <p class="ai-strip__lede">{lede}</p>
+    <div class="ai-strip__copy story-editorial-head">
+      <p class="ai-strip__eyebrow story-editorial-head__code">{eyebrow}</p>
+      <MotionIgniteWords as="p" className="ai-strip__title story-editorial-head__title" text={title} />
+      <MotionBlock delay={90}>
+        <p class="ai-strip__lede story-editorial-head__lede">{lede}</p>
+      </MotionBlock>
     </div>
 
     <ul class="ai-strip__grid">
@@ -77,64 +76,30 @@
 
 <style>
   .ai-strip {
+    width: 100%;
     background: var(--story-bg);
     border-top: 1px solid color-mix(in srgb, var(--color-linen) 10%, transparent);
-    padding: clamp(2.5rem, 6vh, 3.5rem) var(--editorial-pad)
-      clamp(2rem, 5vh, 3rem);
+    padding: clamp(2.5rem, 6vh, 3.5rem) var(--editorial-pad) clamp(2rem, 5vh, 3rem);
   }
 
   .ai-strip__inner {
-    max-width: var(--editorial-max);
-    margin: 0 auto;
-    display: grid;
-    gap: 1.75rem;
-    align-items: center;
-  }
-
-  .ai-strip--wide .ai-strip__inner {
-    max-width: var(--max-width);
     width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    display: grid;
+    gap: clamp(1.75rem, 4vh, 2.25rem);
+    align-items: end;
   }
 
   @media (min-width: 768px) {
     .ai-strip__inner {
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      gap: 2.5rem;
-    }
-
-    .ai-strip--wide .ai-strip__inner {
       grid-template-columns: minmax(0, 1fr) auto;
       gap: clamp(2rem, 5vw, 4rem);
     }
   }
 
-  .ai-strip__eyebrow {
-    margin: 0 0 0.45rem;
-    font-size: 0.58rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: color-mix(in srgb, var(--color-linen) 42%, transparent);
-  }
-
-  .ai-strip__title {
-    margin: 0 0 0.65rem;
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-    letter-spacing: 0.02em;
-    line-height: 1.2;
-    color: var(--color-linen);
-  }
-
   .ai-strip__lede {
-    margin: 0;
-    max-width: 42ch;
-    font-size: 0.82rem;
-    line-height: 1.55;
-    color: color-mix(in srgb, var(--color-linen) 62%, transparent);
-  }
-
-  .ai-strip--wide .ai-strip__lede {
-    max-width: 48ch;
+    max-width: min(42rem, 92vw);
   }
 
   .ai-strip__grid {
@@ -144,16 +109,13 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
-  }
-
-  .ai-strip--wide .ai-strip__grid {
-    width: min(100%, 22rem);
-    margin-inline: auto;
+    width: min(100%, 24rem);
+    margin-inline: 0;
   }
 
   @media (min-width: 768px) {
-    .ai-strip--wide .ai-strip__grid {
-      margin-inline: 0;
+    .ai-strip__grid {
+      justify-self: end;
     }
   }
 
@@ -166,18 +128,18 @@
     min-height: 5.5rem;
     padding: 0.9rem 0.65rem;
     border: 1px solid color-mix(in srgb, var(--color-linen) 14%, transparent);
-    border-radius: 0.65rem;
+    border-radius: 0;
     background: color-mix(in srgb, var(--color-linen) 4%, transparent);
     transition:
       border-color 0.25s ease,
       background 0.25s ease,
-      transform 0.25s ease;
+      transform 0.3s var(--ease-ribbit);
   }
 
   .ai-strip__card:hover {
     border-color: color-mix(in srgb, var(--accent-gold) 45%, transparent);
     background: color-mix(in srgb, var(--accent-gold) 8%, transparent);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
   }
 
   .ai-strip__icon {
@@ -198,9 +160,9 @@
   }
 
   .ai-strip__name {
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: var(--type-label);
+    letter-spacing: 0.04em;
+    text-transform: none;
     color: color-mix(in srgb, var(--color-linen) 78%, transparent);
   }
 </style>

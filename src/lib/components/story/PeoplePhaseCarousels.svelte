@@ -99,12 +99,20 @@
     lightboxTitle = $t(currentPhase.labelKey);
   }
 
-  /** Adatta il fit alle immagini verticali (schizzi, bozze). */
+  /** Ritratto/schizzo verticale → riempie la cornice 16:9 con crop e zoom. */
   /** @param {HTMLImageElement} node */
-  function portraitFit(node) {
+  function landscapeFit(node) {
     const apply = () => {
-      const portrait = node.naturalHeight > node.naturalWidth * 1.04;
-      node.classList.toggle('people-phases__img--portrait', portrait);
+      const { naturalWidth: w, naturalHeight: h } = node;
+      if (!w || !h) return;
+      const isPortrait = h > w * 1.02;
+      if (isPortrait) {
+        const tallness = h / w;
+        const zoom = Math.min(1 + (tallness - 1) * 0.42, 1.85);
+        node.style.setProperty('--phase-img-zoom', zoom.toFixed(3));
+      } else {
+        node.style.removeProperty('--phase-img-zoom');
+      }
     };
     if (node.complete && node.naturalWidth) apply();
     else node.addEventListener('load', apply, { once: true });
@@ -125,9 +133,9 @@
       use:reveal={{ variant: 'clip-up', threshold: 0.1, onInView: () => (headIn = true) }}
     >
       {#if sectionCode}
-        <p class="people-phases__code">{sectionCode}</p>
+      <p class="people-phases__code story-editorial-head__code">{sectionCode}</p>
       {/if}
-      <MotionWords as="h2" id="people-phases-title" className="people-phases__title" text={title} />
+      <MotionWords as="h2" id="people-phases-title" className="people-phases__title story-editorial-head__title" text={title} />
     </header>
 
     {#if activePhases.length}
@@ -201,7 +209,7 @@
                   alt=""
                   loading="lazy"
                   decoding="async"
-                  use:portraitFit
+                  use:landscapeFit
                 />
                 <span class="people-phases__hint">{$t('people.expandPhase')}</span>
               </button>
@@ -248,8 +256,10 @@
   }
 
   .people-phases__inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    text-align: left;
   }
 
   .people-phases__head {
@@ -261,22 +271,22 @@
   }
 
   .people-phases__code {
-    margin: 0 0 0.5rem;
-    font-family: var(--font-body);
-    font-size: 0.58rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: color-mix(in srgb, var(--accent-gold) 80%, var(--story-text));
+    margin: 0 0 0.75rem;
+    font-size: var(--type-label);
+    letter-spacing: 0.04em;
+    text-transform: none;
+    opacity: 0.55;
+    color: color-mix(in srgb, var(--story-text) 88%, transparent);
   }
 
   .people-phases :global(.people-phases__title) {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(1.35rem, 3.5vw, 2.1rem);
     font-weight: var(--weight-black, 700);
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    line-height: 1.15;
+    font-size: var(--type-section-title);
+    letter-spacing: -0.02em;
+    text-transform: none;
+    line-height: 1.08;
     color: var(--story-text);
   }
 
@@ -357,9 +367,9 @@
     padding: 0;
     border: 1px solid var(--story-border);
     border-radius: 0.65rem;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    background: color-mix(in srgb, var(--story-surface) 88%, #0a0a0c);
+    background: color-mix(in srgb, var(--story-surface) 88%, #0a0a0e);
     cursor: zoom-in;
     text-align: left;
   }
@@ -370,18 +380,13 @@
     height: 100%;
     object-fit: cover;
     object-position: center center;
+    transform: scale(var(--phase-img-zoom, 1));
     transition: transform 0.55s var(--ease-ribbit);
   }
 
-  .people-phases__visual img.people-phases__img--portrait {
-    object-fit: contain;
-    object-position: center center;
-    background: color-mix(in srgb, var(--story-surface) 92%, #0a0a0c);
-  }
-
-  .people-phases__visual:hover img:not(.people-phases__img--portrait),
-  .people-phases__visual:focus-visible img:not(.people-phases__img--portrait) {
-    transform: scale(1.03);
+  .people-phases__visual:hover img,
+  .people-phases__visual:focus-visible img {
+    transform: scale(calc(var(--phase-img-zoom, 1) * 1.03));
   }
 
   .people-phases__visual::after {

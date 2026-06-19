@@ -3,9 +3,8 @@
   import MotionWords from '$lib/components/MotionWords.svelte';
   import MotionBlock from '$lib/components/MotionBlock.svelte';
   import { storyTones } from '$lib/data/home-story.js';
-  import { storyTalents as builtinStoryTalents } from '$lib/data/home-story.js';
   import { buildStoryTalentsFromShowcases } from '$lib/data/home-story-build.js';
-  import { getTalentNeighborsFromList, talents as builtinTalents } from '$lib/data/talents.js';
+  import { getTalentNeighborsFromList } from '$lib/data/talents.js';
   import { locale, t } from '$lib/i18n';
   import { reveal } from '$lib/reveal';
 
@@ -26,10 +25,8 @@
   /** Griglia a 3 colonne per gli altri talenti sul profilo. */
   export let peersOnly = false;
 
-  $: storyTalents = $page.data.showcases?.length
-    ? buildStoryTalentsFromShowcases($page.data.showcases)
-    : builtinStoryTalents;
-  $: talentList = $page.data.talents?.length ? $page.data.talents : builtinTalents;
+  $: storyTalents = buildStoryTalentsFromShowcases($page.data.showcases ?? []);
+  $: talentList = $page.data.talents ?? [];
   $: navTalents = currentSlug
     ? storyTalents.filter((talent) => talent.slug !== currentSlug)
     : storyTalents;
@@ -42,15 +39,15 @@
 </script>
 
 <nav class="story-talents story-peer-nav" style="--story-bg: {bg}; --story-peer-bg: {bg}" aria-label={$t('profile.exploreTalents')}>
-  <header class="story-talents__head story-peer-nav__head">
-    <p class="story-talents__code story-peer-nav__code">{sectionCode} · {$t('pages.talentsLabel')}</p>
+  <header class="story-talents__head story-peer-nav__head story-editorial-head">
+    <p class="story-talents__code story-peer-nav__code story-editorial-head__code">{sectionCode} · {$t('pages.talentsLabel')}</p>
     <MotionWords
       as="p"
-      className="story-talents__title story-peer-nav__title"
+      className="story-talents__title story-peer-nav__title story-editorial-head__title"
       text={$t('profile.exploreTalents')}
     />
     <MotionBlock delay={100}>
-      <p class="story-talents__lede story-peer-nav__lede">{flowLabel}</p>
+      <p class="story-talents__lede story-peer-nav__lede story-editorial-head__lede">{flowLabel}</p>
     </MotionBlock>
   </header>
 

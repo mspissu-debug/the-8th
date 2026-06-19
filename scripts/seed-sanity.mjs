@@ -24,7 +24,7 @@ const client = createClient({
 const showcases = [
 	{
 		slug: 'elena',
-		name: 'Elena Scala',
+		name: 'Elena Moscara',
 		project: 'Meta-Florea',
 		pitch:
 			'Meta-Florea esplora la metamorfosi tra natura e gioiello: forme organiche, materiali vivi e una collezione pensata per la vetrina di Vicenzaoro.'

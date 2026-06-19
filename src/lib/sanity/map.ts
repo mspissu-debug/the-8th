@@ -31,12 +31,13 @@ export type SanityTalentDoc = {
 };
 
 export function mapSanityMentor(doc: SanityMentorDoc) {
+	const image = doc.image || undefined;
 	return {
 		slug: doc.slug,
 		name: doc.name,
 		roleIt: doc.roleIt,
 		roleEn: doc.roleEn ?? doc.roleIt,
-		...(doc.image ? { image: doc.image } : {}),
+		...(image ? { image, portrait: image } : {}),
 		website: doc.website,
 		bioIt: doc.bioIt,
 		bioEn: doc.bioEn ?? doc.bioIt,
@@ -61,6 +62,7 @@ export function mapSanityTalent(doc: SanityTalentDoc) {
 		sketch: (doc.sketch ?? []).filter(Boolean),
 		finished: (doc.finished ?? []).filter(Boolean),
 		vetrina: (doc.vetrina ?? []).filter(Boolean),
+		order: doc.order,
 		source: 'sanity' as const
 	};
 }

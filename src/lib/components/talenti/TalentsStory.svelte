@@ -5,15 +5,12 @@
   import HomeStoryFooter from '$lib/components/home/HomeStoryFooter.svelte';
   import { page } from '$app/stores';
   import { storyTones } from '$lib/data/home-story.js';
-  import { storyTalents as builtinStoryTalents } from '$lib/data/home-story.js';
   import { buildStoryTalentsFromShowcases } from '$lib/data/home-story-build.js';
   import { t } from '$lib/i18n';
 
   $: homeBack = { href: '/', label: $t('pages.backHome'), hint: $t('pages.backHomeHint') };
 
-  $: storyTalents = $page.data.showcases?.length
-    ? buildStoryTalentsFromShowcases($page.data.showcases)
-    : builtinStoryTalents;
+  $: storyTalents = buildStoryTalentsFromShowcases($page.data.showcases ?? []);
 </script>
 
 <svelte:head>

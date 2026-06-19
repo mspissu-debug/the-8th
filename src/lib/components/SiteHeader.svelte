@@ -78,6 +78,32 @@
       }, 1700);
     }
   }
+
+  /** Ritratto verticale → riempie la cornice orizzontale con crop centrato. */
+  /** @param {HTMLImageElement} node */
+  function headerPreviewFit(node) {
+    const apply = () => {
+      const { naturalWidth: w, naturalHeight: h } = node;
+      if (!w || !h) return;
+      const isPortrait = h > w * 1.02;
+      if (isPortrait) {
+        const tallness = h / w;
+        const zoom = Math.min(1 + (tallness - 1) * 0.42, 1.85);
+        node.style.setProperty('--header-img-zoom', zoom.toFixed(3));
+        node.style.objectPosition = 'center center';
+      } else {
+        node.style.removeProperty('--header-img-zoom');
+        node.style.objectPosition = w > h * 1.15 ? 'center center' : 'center 22%';
+      }
+    };
+    if (node.complete && node.naturalWidth) apply();
+    else node.addEventListener('load', apply, { once: true });
+    return {
+      destroy() {
+        node.removeEventListener('load', apply);
+      }
+    };
+  }
 </script>
 
 <svelte:window
@@ -133,7 +159,7 @@
         <div class="site-header__panel-carousel">
           {#each previewSlides as src, i}
             <article class="site-header__profile" class:site-header__profile--active={i === previewIndex}>
-              <img src={src} alt="" />
+              <img src={src} alt="" use:headerPreviewFit />
             </article>
           {/each}
         </div>
@@ -480,10 +506,10 @@
     border-radius: 0;
     border: 1px solid color-mix(in srgb, var(--color-linen) 14%, transparent);
     background: #0a0a0e;
-    aspect-ratio: 16 / 11;
-    min-height: 11rem;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: minmax(0, 1fr) auto;
     isolation: isolate;
   }
 
@@ -492,28 +518,24 @@
     z-index: 2;
     padding: 0.65rem 0.75rem;
     background: #06060a;
-  }
-
-  .site-header__panel-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 18%;
-    filter: saturate(1.12) contrast(1.05);
+    border-top: 1px solid color-mix(in srgb, var(--color-linen) 10%, transparent);
   }
 
   .site-header__panel-carousel {
     position: relative;
     width: 100%;
+    height: 100%;
     min-height: 0;
+    overflow: hidden;
   }
 
   .site-header__profile {
     position: absolute;
     inset: 0;
-    bottom: 2.5rem;
+    margin: 0;
     opacity: 0;
     transition: opacity 0.35s ease;
+    overflow: hidden;
   }
 
   .site-header__profile--active {
@@ -521,10 +543,14 @@
   }
 
   .site-header__profile img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 22%;
+    object-position: center center;
+    transform: scale(var(--header-img-zoom, 1));
+    transform-origin: center center;
+    filter: saturate(1.12) contrast(1.05);
   }
 
   .site-header__panel-abstract {

@@ -1,7 +1,7 @@
 <script>
   import PageNav from '$lib/components/PageNav.svelte';
   import HeroCarousel from '$lib/components/HeroCarousel.svelte';
-  import MotionWords from '$lib/components/MotionWords.svelte';
+  import MotionIgniteWords from '$lib/components/MotionIgniteWords.svelte';
   import MotionBlock from '$lib/components/MotionBlock.svelte';
 
   /** @type {string[]} */
@@ -54,7 +54,7 @@
         <p class="story-hero__code">{code}</p>
       {/if}
       {#if title}
-        <MotionWords as="h1" className={titleClass} text={title} />
+        <MotionIgniteWords as="h1" className={titleClass} text={title} delay={50} />
       {/if}
       {#if lede}
         <MotionBlock delay={120}>
@@ -118,7 +118,8 @@
 
   .story-hero__copy {
     padding: clamp(2rem, 8vh, 4rem) var(--editorial-pad) clamp(2.5rem, 8vh, 3.5rem);
-    max-width: 46rem;
+    width: 100%;
+    max-width: none;
   }
 
   .story-hero__code {

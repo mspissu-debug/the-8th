@@ -57,7 +57,7 @@
 {#if !storyChrome}
 	<AiAssistantsStrip bg="#06060a" />
 	<footer class="foot">
-		<div class="container foot__inner">
+		<div class="foot__inner">
 			<div class="foot__brand">
 				<a href="/" class="foot__logo">THE 8th</a>
 				<span>© 2026 THE 8th · Tutti i diritti riservati</span>
@@ -77,12 +77,15 @@
 
 <style>
 	.foot {
-		padding: 2.5rem 0;
+		width: 100%;
+		padding: 2.5rem var(--editorial-pad);
 		border-top: 1px solid var(--line);
 		background: var(--bg);
 	}
 
 	.foot__inner {
+		width: 100%;
+		max-width: none;
 		display: grid;
 		grid-template-columns: 1fr auto 1fr;
 		gap: 2rem;
