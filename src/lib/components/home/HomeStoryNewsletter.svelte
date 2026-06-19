@@ -10,11 +10,15 @@
   export let showOpenCallLink = true;
 
   /** @type {string} */
-  export let sectionCode = '// 18';
+  export let sectionCode = '// 14';
+
+  /** Layout largo come profilo talento/mentor e footer story. */
+  export let wide = false;
 </script>
 
 <section
   class="story-newsletter"
+  class:story-newsletter--wide={wide}
   id="home-newsletter"
   style="--story-bg: {bg}"
   aria-labelledby="story-newsletter-title"
@@ -57,12 +61,27 @@
     gap: 1.75rem;
   }
 
+  .story-newsletter--wide .story-newsletter__inner {
+    max-width: var(--max-width);
+    width: 100%;
+  }
+
   @media (min-width: 820px) {
     .story-newsletter__inner {
       grid-template-columns: 1.05fr 0.95fr;
       align-items: end;
       gap: 2.5rem;
     }
+
+    .story-newsletter--wide .story-newsletter__inner {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      align-items: center;
+      gap: clamp(2rem, 5vw, 4rem);
+    }
+  }
+
+  .story-newsletter--wide .story-newsletter__text {
+    max-width: none;
   }
 
   .story-newsletter__code {
@@ -101,13 +120,17 @@
   }
 
   .story-newsletter :global(.newsletter-form__row input) {
-    border-color: color-mix(in srgb, var(--color-linen) 22%, transparent);
+    padding: 0.65rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-linen) 22%, transparent);
+    border-radius: 0.35rem;
     background: color-mix(in srgb, var(--color-linen) 6%, transparent);
     color: var(--color-linen);
   }
 
-  .story-newsletter :global(.newsletter-form__row button) {
-    border-color: color-mix(in srgb, var(--accent-gold) 50%, transparent);
+  .story-newsletter :global(.newsletter-form__submit) {
+    padding: 0.65rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--accent-gold) 50%, transparent);
+    border-radius: 0.35rem;
     background: color-mix(in srgb, var(--accent-gold) 16%, transparent);
     color: var(--color-linen);
   }

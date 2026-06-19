@@ -12,7 +12,7 @@
 @import './lib/styles/typography-scale.css';
 
 :root {
-	/* Coolors palette — saturated (Michele, priorità font) */
+	/* Coolors palette — saturated */
 	--black: #020312;
 	--indigo: #3d268f;
 	--grape: #7254d8;

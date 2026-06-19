@@ -35,7 +35,7 @@
     showCta={false}
   />
 
-  <HomeStoryNewsletter bg={storyTones.ash} />
+  <HomeStoryNewsletter bg={storyTones.ash} wide />
 
-  <HomeStoryFooter bg={storyTones.void} />
+  <HomeStoryFooter bg={storyTones.void} wide />
 </article>

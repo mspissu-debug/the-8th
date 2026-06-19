@@ -1,6 +1,5 @@
 /**
- * Ponte estetico ibrido Matteo × Michele
- * Font e palette Michele; token story Matteo mappati sulla stessa famiglia.
+ * Ponte estetico — token story e palette condivisa.
  */
 
 :root {
@@ -13,7 +12,7 @@
 	--max-width: min(1240px, calc(100% - clamp(2rem, 6vw, 5rem)));
 	--editorial-eyebrow: clamp(0.875rem, 1.6vw, 1rem);
 	--radius-xl: 999px;
-	/* --ease-out / --ease-ribbit definiti in motion.css (reveal Michele) */
+	/* --ease-out / --ease-ribbit definiti in motion.css */
 	--text-base: 1.2rem;
 	--text: var(--fg);
 	--text-muted: var(--fg-muted);

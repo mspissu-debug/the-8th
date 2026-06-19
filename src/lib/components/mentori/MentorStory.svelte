@@ -78,6 +78,7 @@
   <PeopleProfileSplit
     image={mentor.image}
     imageAlt={mentor.name}
+    imageSide="right"
     {tag}
     name={mentor.name}
     {roleLine}
@@ -96,7 +97,7 @@
     <PeopleIndexRow items={rowItems} ctaLabel={$t('people.openProfile')} />
   </section>
 
-  <HomeStoryNewsletter bg={storyTones.ash} />
+  <HomeStoryNewsletter bg={storyTones.ash} wide />
 
-  <HomeStoryFooter bg={storyTones.void} />
+  <HomeStoryFooter bg={storyTones.void} wide />
 </article>

@@ -3,14 +3,14 @@
   import MotionWords from '$lib/components/MotionWords.svelte';
   import { sectionProgress } from '$lib/utils/scroll-progress.js';
 
-  /** @type {{ id: string, title: string, body: string, image?: string, images?: string[] }[]} */
+  /** @type {{ id: string, title: string, body: string, image?: string, images?: string[], layout?: string }[]} */
   export let steps = [];
 
   /** @type {string} */
   export let bg = '#06060a';
 
   /** @type {number} */
-  export let scrollVh = 4.5;
+  export let scrollVh = 2.2;
 
   /** @type {string} */
   export let sectionId = 'home-path';
@@ -25,6 +25,7 @@
   $: activeIndex = Math.min(stepCount - 1, Math.max(0, Math.floor(progress / segment)));
   $: activeStep = steps[activeIndex] ?? steps[0];
   $: heroImage = activeStep?.image ?? activeStep?.images?.[0] ?? '';
+  $: copyLayout = activeStep?.layout ?? 'bottom-left';
 
   onMount(() => {
     const onScroll = () => {
@@ -65,21 +66,21 @@
           <img class="story-path__img" src={heroImage} alt="" loading="lazy" decoding="async" />
         {/if}
       {/key}
-      <div class="story-path__veil"></div>
+      <div class="story-path__veil" class:story-path__veil--center={copyLayout === 'center'}></div>
     </div>
 
-    <div class="story-path__copy">
-      <p class="story-path__code">{activeStep?.code ?? '// 05'}</p>
-      {#key activeIndex}
+    {#key activeIndex}
+      <div class="story-path__copy story-path__copy--{copyLayout}">
+        <p class="story-path__code">{activeStep?.code ?? '// 05'}</p>
         <MotionWords
           as="h2"
           className="story-path__title"
           text={activeStep?.title ?? ''}
           delay={40}
         />
-      {/key}
-      <p class="story-path__body">{activeStep?.body ?? ''}</p>
-    </div>
+        <p class="story-path__body">{activeStep?.body ?? ''}</p>
+      </div>
+    {/key}
   </div>
 </section>
 
@@ -95,9 +96,6 @@
     position: sticky;
     top: 0;
     height: 100svh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
     overflow: hidden;
   }
 
@@ -125,8 +123,8 @@
   }
 
   .story-path__media {
-    position: relative;
-    min-height: 0;
+    position: absolute;
+    inset: 0;
   }
 
   .story-path__img {
@@ -150,13 +148,61 @@
       rgba(6, 6, 10, 0.35) 45%,
       rgba(6, 6, 10, 0.92) 100%
     );
+    transition: background 0.55s var(--ease-ribbit);
+  }
+
+  .story-path__veil--center {
+    background:
+      radial-gradient(
+        ellipse 70% 55% at 50% 50%,
+        rgba(6, 6, 10, 0.55) 0%,
+        rgba(6, 6, 10, 0.82) 100%
+      ),
+      linear-gradient(180deg, rgba(6, 6, 10, 0.35) 0%, rgba(6, 6, 10, 0.65) 100%);
   }
 
   .story-path__copy {
-    position: relative;
+    position: absolute;
     z-index: 3;
-    padding: clamp(1.5rem, 4vh, 2.5rem) var(--editorial-pad) clamp(2rem, 6vh, 3rem);
-    max-width: 40rem;
+    padding: clamp(1.25rem, 3.5vh, 2rem) max(var(--editorial-pad), var(--chapter-index-safe, 3.75rem));
+    max-width: min(38rem, 90vw);
+    transition:
+      opacity 0.45s var(--ease-ribbit),
+      transform 0.55s var(--ease-ribbit);
+  }
+
+  .story-path__copy--bottom-left {
+    left: 0;
+    bottom: 0;
+    text-align: left;
+  }
+
+  .story-path__copy--bottom-right {
+    right: 0;
+    bottom: 0;
+    text-align: right;
+  }
+
+  .story-path__copy--top-right {
+    right: 0;
+    top: calc(var(--site-header-offset, 5.75rem) + 0.75rem);
+    text-align: right;
+    max-width: min(34rem, 82vw);
+  }
+
+  .story-path__copy--top-left {
+    left: 0;
+    top: calc(var(--site-header-offset, 5.75rem) + 0.75rem);
+    text-align: left;
+    max-width: min(34rem, 82vw);
+  }
+
+  .story-path__copy--center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: min(36rem, 88vw);
   }
 
   .story-path__code {
@@ -178,6 +224,11 @@
     text-wrap: balance;
   }
 
+  .story-path :global(.story-path__title .motion-words__word) {
+    overflow: visible;
+    padding-bottom: 0.05em;
+  }
+
   .story-path__body {
     margin: 1rem 0 0;
     max-width: 38rem;
@@ -186,16 +237,22 @@
     color: color-mix(in srgb, var(--color-linen) 78%, transparent);
   }
 
-  @media (min-width: 900px) {
-    .story-path__copy {
-      padding-left: calc(var(--editorial-pad) + 2rem);
-    }
+  .story-path__copy--center .story-path__body,
+  .story-path__copy--top-right .story-path__body,
+  .story-path__copy--bottom-right .story-path__body {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .story-path__copy--top-right .story-path__body,
+  .story-path__copy--bottom-right .story-path__body {
+    margin-left: auto;
   }
 
   @media (max-width: 720px) {
     .story-path__rail {
       top: auto;
-      bottom: 42%;
+      bottom: 38%;
       transform: none;
       flex-direction: row;
       left: var(--editorial-pad);
@@ -211,6 +268,27 @@
     .story-path__tick--on {
       width: 2rem;
       height: 1px;
+    }
+
+    .story-path__copy--top-right,
+    .story-path__copy--top-left {
+      top: calc(var(--site-header-offset, 5.75rem) + 0.35rem);
+      max-width: 92vw;
+    }
+
+    .story-path__copy--bottom-right {
+      text-align: left;
+      left: 0;
+      right: auto;
+    }
+
+    .story-path__copy--center {
+      top: auto;
+      bottom: 28%;
+      left: var(--editorial-pad);
+      right: var(--editorial-pad);
+      transform: none;
+      text-align: left;
     }
   }
 </style>

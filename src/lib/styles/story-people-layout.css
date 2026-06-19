@@ -1,5 +1,5 @@
 /**
- * Layout mentor / studenti — struttura Michele (griglia a colonne, profilo split, liste).
+ * Layout mentor / studenti — griglia a colonne, profilo split, liste.
  * Colori e font: token story (--story-text, --accent-gold, --font-display, --font-body).
  */
 
@@ -192,6 +192,24 @@
 @media (min-width: 768px) {
 	.people-profile-split__grid {
 		grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+	}
+
+	.people-profile-split--image-right .people-profile-split__grid {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 0.38fr);
+	}
+
+	.people-profile-split--image-right .people-profile-split__copy {
+		order: 1;
+	}
+
+	.people-profile-split--image-right .people-profile-split__visual {
+		order: 2;
+	}
+
+	.people-profile-split--image-right .people-profile-split__visual::before {
+		left: auto;
+		right: 0;
+		transform: translateX(0.65rem);
 	}
 }
 

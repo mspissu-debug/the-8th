@@ -36,7 +36,7 @@ export function mapSanityMentor(doc: SanityMentorDoc) {
 		name: doc.name,
 		roleIt: doc.roleIt,
 		roleEn: doc.roleEn ?? doc.roleIt,
-		image: doc.image,
+		...(doc.image ? { image: doc.image } : {}),
 		website: doc.website,
 		bioIt: doc.bioIt,
 		bioEn: doc.bioEn ?? doc.bioIt,

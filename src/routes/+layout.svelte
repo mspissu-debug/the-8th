@@ -4,7 +4,7 @@
 	import '../app.css';
 	import '../lib/page-ui.css';
 	import PersistentStoryCta from '$lib/components/PersistentStoryCta.svelte';
-	import ScrollProgressMatteo from '$lib/components/ScrollProgressMatteo.svelte';
+	import ScrollProgress from '$lib/components/ScrollProgress.svelte';
 	import SiteHeader from '$lib/components/SiteHeader.svelte';
 	import SeoHead from '$lib/components/SeoHead.svelte';
 	import Analytics from '$lib/components/Analytics.svelte';
@@ -39,7 +39,7 @@
 <SeoHead />
 <Analytics />
 <SiteThemeApply />
-<ScrollProgressMatteo />
+<ScrollProgress />
 <SiteHeader />
 {#if storyChrome}
 	<PersistentStoryCta />

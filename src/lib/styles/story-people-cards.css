@@ -1,6 +1,6 @@
 /**
- * Griglie e card mentor/talenti — layout Michele (3:4, 2→4 colonne).
- * Colori e font restano su token Matteo (--color-linen, --accent-gold, --font-display, …).
+ * Griglie e card mentor/talenti — layout 3:4, 2→4 colonne.
+ * Colori e font: token story (--color-linen, --accent-gold, --font-display, …).
  */
 
 /* Home: card riempiono la colonna; pagine /mentors e profili più compatte */
@@ -76,7 +76,7 @@
 	color: var(--color-linen);
 }
 
-/* Griglia Michele: 2 col mobile → 4 desktop */
+/* Griglia: 2 col mobile → 4 desktop */
 .story-mentors__grid,
 .story-talents__grid {
 	display: grid;
@@ -139,7 +139,7 @@
 	transform: translateY(-4px);
 }
 
-/* Visual 3:4 — cap altezza (card compatte, stesso rapporto Michele) */
+/* Visual 3:4 — cap altezza (card compatte) */
 .story-mentors__frame,
 .story-talents__visual,
 .story-peer-nav__visual {
@@ -370,7 +370,7 @@
 	color: var(--story-text);
 }
 
-/* —— Lane card studente (griglia 3 col come fasi Michele) —— */
+/* —— Lane card studente (griglia 3 col) —— */
 .student-story__lanes {
 	padding: clamp(3rem, 10vh, 5rem) var(--editorial-pad);
 	position: relative;
@@ -441,7 +441,7 @@
 	margin-top: 0.65rem;
 }
 
-/* Ritratto hero profilo studente — dimensioni Michele */
+/* Ritratto hero profilo studente */
 .student-story__portrait {
 	margin-top: 1.25rem;
 	width: clamp(3.25rem, 8vw, 4.5rem);

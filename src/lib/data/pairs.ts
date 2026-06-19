@@ -1,7 +1,7 @@
 import { getBuiltinShowcases } from './showcase-registry.js';
 import { mentors } from './mentors.js';
 
-/** Coppie studente–mentor dell’edizione (ordine Matteo) */
+/** Coppie studente–mentor dell’edizione */
 export const EDITION_PAIRS = getBuiltinShowcases().map((student, i) => {
 	const mentor = mentors[i];
 	return {

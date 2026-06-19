@@ -1,4 +1,4 @@
-/** Link ibrido — navbar Matteo, route Michele */
+/** Link principali del sito */
 
 export const siteLinks = {
 	email: 'info@maniintelligenti.it',
@@ -19,6 +19,7 @@ export const footerExploreLinks = [
 	{ href: '/mentors', key: 'nav.mentors', hintKey: 'pages.mentorsLede' },
 	{ href: '/editions/september', key: 'nav.vetrina', hintKey: 'pages.vetrinaLede' },
 	{ href: '/contact', key: 'nav.contact', hintKey: 'pages.contactLede' },
+	{ href: '/llms.txt', key: 'footer.llms' },
 	{ href: '/open-call', key: 'nav.candidature', hintKey: 'pages.openCallLede' }
 ];
 

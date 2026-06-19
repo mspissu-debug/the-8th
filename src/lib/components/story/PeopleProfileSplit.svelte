@@ -24,6 +24,9 @@
   /** @type {{ href: string, label: string, external?: boolean }[]} */
   export let actions = [];
 
+  /** Posizione ritratto nel layout split: `left` o `right`. */
+  export let imageSide = 'left';
+
   $: parts = splitName(name);
 
   let blockIn = false;
@@ -31,6 +34,7 @@
 
 <section
   class="people-profile-split story-page__section--soft"
+  class:people-profile-split--image-right={imageSide === 'right'}
   aria-label={name}
   use:reveal={{ variant: 'clip-up', threshold: 0.1, onInView: () => (blockIn = true) }}
 >

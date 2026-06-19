@@ -74,7 +74,8 @@
 
   .newsletter-form__row input {
     flex: 1;
-    padding: 0.55rem 0;
+    min-width: 0;
+    padding: 0.6rem 0.85rem;
     border: none;
     background: transparent;
     color: var(--newsletter-input, var(--color-linen));

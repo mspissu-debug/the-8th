@@ -17,7 +17,7 @@
   export let showHead = true;
 
   /** @type {string} */
-  export let sectionCode = '// 15';
+  export let sectionCode = '// 11';
 </script>
 
 <section class="story-mentors" id="home-mentors" style="--story-bg: {bg}" aria-labelledby="story-mentors-title">

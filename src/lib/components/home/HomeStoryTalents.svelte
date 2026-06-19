@@ -19,7 +19,7 @@
   export let showCta = true;
 
   /** @type {string} */
-  export let sectionCode = '// 14';
+  export let sectionCode = '// 10';
 
   /** @type {string} */
   export let sectionTitle = '';

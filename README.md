@@ -1,19 +1,6 @@
-# The 8 — Ibrido Matteo × Michele
+# THE 8th
 
-Unione della proposta **Matteo** (`THE 8/THE8`) e **Michele** (`the8-proposta-02`).
-
-## Cosa usa chi
-
-| Elemento | Fonte |
-|----------|--------|
-| Storytelling home (scroll, capitoli) | Matteo — `HomeStory` |
-| Animazioni pagine interne | Michele — `reveal`, `page-motion`, grafiche |
-| Immagini statiche | Matteo — cartella `static/` |
-| Navbar | Matteo — `SiteHeader` |
-| Font (priorità) | Michele — Space Grotesk + IBM Plex Mono |
-| Sezione mentor (layout/UX) | Michele — `/mentors` |
-| Admin | Michele — `/admin` |
-| Palette coesa | Bridge CSS — `hybrid-bridge.css` |
+Sito editoriale narrativo per il contest internazionale di design gioiello THE 8th — bilingue IT/EN.
 
 ## Avvio
 
@@ -29,7 +16,6 @@ npm run build
 npm run preview
 ```
 
-## Note
+## Route principali
 
-- Route principali: `/`, `/mentors`, `/students`, `/editions/*`, `/contact`, `/admin`
-- La home usa il racconto scroll di Matteo; le pagine interne mantengono il sistema motion di Michele.
+`/`, `/mentors`, `/students`, `/editions/*`, `/contact`, `/open-call`, `/cookie-policy`

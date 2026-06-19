@@ -43,7 +43,7 @@
   /** @type {HTMLElement | null} */
   let pathSection = null;
 
-  const PATH_SCROLL_VH = 3.4;
+  const PATH_SCROLL_VH = 2.2;
 
   $: pathSteps = buildHomePathSteps($t, storyPathCoverImages);
   $: homeChapters = buildHomeIndexChapters($t);
@@ -141,7 +141,7 @@
 
   <HomeStoryScrollScene
     sectionId="home-chapter-mirror"
-    sectionCode={codeForSection(13)}
+    sectionCode={codeForSection(9)}
     images={storyOrbitImages}
     bg={storyTones.charcoal}
     scrollVh={2.4}
@@ -155,14 +155,14 @@
   <HomeStoryTalents
     talents={storyTalents}
     bg={storyTones.charcoal}
-    sectionCode={codeForSection(14)}
+    sectionCode={codeForSection(10)}
   />
 
-  <HomeStoryMentors bg={storyTones.ink} sectionCode={codeForSection(15)} />
+  <HomeStoryMentors bg={storyTones.ink} sectionCode={codeForSection(11)} />
 
   <HomeStoryRail
     sectionId="home-chapter-works"
-    sectionCode={codeForSection(16)}
+    sectionCode={codeForSection(12)}
     items={storyWorks}
     title={$t('home.storyWorksTitle')}
     ctaLabel={$t('home.storyWorksCta')}
@@ -173,14 +173,14 @@
   <HomeStoryVetrina
     images={storyVetrinaSlides}
     bg={storyTones.void}
-    sectionCode={codeForSection(17)}
+    sectionCode={codeForSection(13)}
   />
 
-  <HomeStoryNewsletter bg={storyTones.ash} sectionCode={codeForSection(18)} />
+  <HomeStoryNewsletter bg={storyTones.ash} sectionCode={codeForSection(14)} />
 
   <HomeStoryStatement
     sectionId="home-chapter-closing"
-    code={codeForSection(19)}
+    code={codeForSection(15)}
     title={$t('home.storyClosingTitle')}
     body={$t('home.storyClosingBody')}
     bg={storyTones.linen}

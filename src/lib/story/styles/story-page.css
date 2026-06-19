@@ -209,7 +209,7 @@ body.home-story-active main {
 	padding-bottom: clamp(1.25rem, 4vh, 2rem);
 }
 
-/* Griglie e card — stesso stagger/reveal della home Michele */
+/* Griglie e card — stesso stagger/reveal della home */
 .story-page .home-stagger {
 	opacity: 0;
 	transform: translateY(22px);

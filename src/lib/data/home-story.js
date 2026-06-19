@@ -50,14 +50,14 @@ function pathWorkImages(/** @type {('sketch'|'concept'|'finished'|'vetrina')[]} 
   return uniqueUrls(SLUGS.flatMap((s) => kinds.flatMap((k) => pathStepImages(s, k)))).slice(0, max);
 }
 
-/** Una sola immagine per capitolo percorso 05–12 (allineata all’indice). */
+/** Una sola immagine per capitolo percorso 05–08 (allineata all’indice). */
 function resolvePathStepCover(/** @type {import('./home-chapters.js').PathStepCoverSpec} */ spec) {
   const list = pathStepImages(spec.slug, spec.kind);
   const idx = spec.index ?? 0;
   return list[idx] ?? list[0] ?? '';
 }
 
-/** URL fisse per scroll capitoli 05–12. */
+/** URL fisse per scroll capitoli 05–08. */
 export const storyPathCoverImages = HOME_PATH_STEP_COVERS.map((spec) =>
   resolvePathStepCover(spec)
 );
@@ -67,11 +67,7 @@ export const storyPathImages = {
   crowd: storyPathCoverImages.slice(0, 1),
   courage: storyPathCoverImages.slice(1, 2),
   concept: storyPathCoverImages.slice(2, 3),
-  sketch: storyPathCoverImages.slice(3, 4),
-  prototype: storyPathCoverImages.slice(4, 5),
-  finished: storyPathCoverImages.slice(5, 6),
-  shooting: storyPathCoverImages.slice(6, 7),
-  vetrina: storyPathCoverImages.slice(7, 8)
+  vetrina: storyPathCoverImages.slice(3, 4)
 };
 
 export const storyWorks = talents.map((talent, i) => {

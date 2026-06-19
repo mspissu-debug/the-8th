@@ -1,4 +1,4 @@
-/** Percorsi breadcrumb — route ibrido Michele */
+/** Percorsi breadcrumb */
 
 /** @typedef {{ href?: string, label: string }} Crumb */
 /** @typedef {{ href: string, label: string, hint?: string }} BackLink */

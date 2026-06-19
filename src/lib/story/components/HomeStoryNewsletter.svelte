@@ -98,13 +98,17 @@
   }
 
   .story-newsletter :global(.newsletter-form__row input) {
-    border-color: color-mix(in srgb, var(--color-linen) 22%, transparent);
+    padding: 0.65rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-linen) 22%, transparent);
+    border-radius: 0.35rem;
     background: color-mix(in srgb, var(--color-linen) 6%, transparent);
     color: var(--color-linen);
   }
 
-  .story-newsletter :global(.newsletter-form__row button) {
-    border-color: color-mix(in srgb, var(--accent-gold) 50%, transparent);
+  .story-newsletter :global(.newsletter-form__submit) {
+    padding: 0.65rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--accent-gold) 50%, transparent);
+    border-radius: 0.35rem;
     background: color-mix(in srgb, var(--accent-gold) 16%, transparent);
     color: var(--color-linen);
   }

@@ -25,7 +25,7 @@
   export let pathScrollVh = 3.4;
 
   /** @type {number} */
-  export let pathStepCount = 8;
+  export let pathStepCount = 4;
 
   let activeId = '';
   let hiddenNearFooter = false;

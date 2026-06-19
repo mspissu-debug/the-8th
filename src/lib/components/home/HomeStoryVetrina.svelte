@@ -17,7 +17,7 @@
   export let showCta = true;
 
   /** @type {string} */
-  export let sectionCode = '// 06';
+  export let sectionCode = '// 13';
 
   /** @type {string} */
   export let badge = '';

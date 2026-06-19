@@ -1,5 +1,5 @@
 /**
- * Mappa univoca sezioni home: numerazione sequenziale 01–18 (nessun ripetuto).
+ * Mappa univoca sezioni home: numerazione sequenziale 01–15.
  */
 
 /** @param {number} n */
@@ -22,61 +22,45 @@ export const HOME_CHAPTER_LAYOUT = [
 	{ id: 'path-06', kind: 'path', pathIndex: 1, num: 6, labelKey: 'path02Title' },
 	{ id: 'path-07', kind: 'path', pathIndex: 2, num: 7, labelKey: 'path03Title' },
 	{ id: 'path-08', kind: 'path', pathIndex: 3, num: 8, labelKey: 'path04Title' },
-	{ id: 'path-09', kind: 'path', pathIndex: 4, num: 9, labelKey: 'path05Title' },
-	{ id: 'path-10', kind: 'path', pathIndex: 5, num: 10, labelKey: 'path06Title' },
-	{ id: 'path-11', kind: 'path', pathIndex: 6, num: 11, labelKey: 'path07Title' },
-	{ id: 'path-12', kind: 'path', pathIndex: 7, num: 12, labelKey: 'path08Title' },
-	{ id: 'mirror', kind: 'section', sectionId: 'home-chapter-mirror', num: 13, labelKey: 'chapterMirror' },
-	{ id: 'talents', kind: 'section', sectionId: 'home-talents', num: 14, labelKey: 'chapterTalents' },
-	{ id: 'mentors', kind: 'section', sectionId: 'home-mentors', num: 15, labelKey: 'chapterMentors' },
-	{ id: 'works', kind: 'section', sectionId: 'home-chapter-works', num: 16, labelKey: 'chapterWorks' },
-	{ id: 'vetrina', kind: 'section', sectionId: 'home-vetrina', num: 17, labelKey: 'chapterVetrina' },
-	{ id: 'newsletter', kind: 'section', sectionId: 'home-newsletter', num: 18, labelKey: 'chapterNewsletter' },
-	{ id: 'closing', kind: 'section', sectionId: 'home-chapter-closing', num: 19, labelKey: 'chapterClosing' }
+	{ id: 'mirror', kind: 'section', sectionId: 'home-chapter-mirror', num: 9, labelKey: 'chapterMirror' },
+	{ id: 'talents', kind: 'section', sectionId: 'home-talents', num: 10, labelKey: 'chapterTalents' },
+	{ id: 'mentors', kind: 'section', sectionId: 'home-mentors', num: 11, labelKey: 'chapterMentors' },
+	{ id: 'works', kind: 'section', sectionId: 'home-chapter-works', num: 12, labelKey: 'chapterWorks' },
+	{ id: 'vetrina', kind: 'section', sectionId: 'home-vetrina', num: 13, labelKey: 'chapterVetrina' },
+	{ id: 'newsletter', kind: 'section', sectionId: 'home-newsletter', num: 14, labelKey: 'chapterNewsletter' },
+	{ id: 'closing', kind: 'section', sectionId: 'home-chapter-closing', num: 15, labelKey: 'chapterClosing' }
 ];
 
 /**
- * Copertina fissa per ogni capitolo indice 05–12 (ordine = path01…path08).
+ * Copertina per ogni capitolo percorso 05–08 (4 step condensati).
  * @typedef {{ slug: string, kind: 'sketch' | 'concept' | 'finished' | 'vetrina', index?: number }} PathStepCoverSpec
  */
 export const HOME_PATH_STEP_COVERS = /** @type {PathStepCoverSpec[]} */ ([
 	{ slug: 'samuele', kind: 'sketch', index: 0 },
 	{ slug: 'roya', kind: 'concept', index: 0 },
-	{ slug: 'elena', kind: 'concept', index: 0 },
-	{ slug: 'flavia', kind: 'sketch', index: 0 },
-	{ slug: 'samuele', kind: 'concept', index: 0 },
-	{ slug: 'roya', kind: 'finished', index: 0 },
 	{ slug: 'elena', kind: 'finished', index: 0 },
 	{ slug: 'flavia', kind: 'vetrina', index: 0 }
 ]);
 
-/** @typedef {{ id: string, title: string, body: string, image: string, images: string[], num: string, code: string }} PathStep */
+/** Posizione tipografica per ogni step del percorso (varietà in scroll). */
+export const HOME_PATH_STEP_LAYOUTS = /** @type {const} */ ([
+	'bottom-left',
+	'top-right',
+	'center',
+	'bottom-right'
+]);
 
-const PATH_STEP_KEYS = [
-	'path01Title',
-	'path02Title',
-	'path03Title',
-	'path04Title',
-	'path05Title',
-	'path06Title',
-	'path07Title',
-	'path08Title'
-];
+/** @typedef {'bottom-left' | 'top-right' | 'center' | 'bottom-right' | 'top-left'} PathStepLayout */
 
-const PATH_BODY_KEYS = [
-	'path01Body',
-	'path02Body',
-	'path03Body',
-	'path04Body',
-	'path05Body',
-	'path06Body',
-	'path07Body',
-	'path08Body'
-];
+/** @typedef {{ id: string, title: string, body: string, image: string, images: string[], num: string, code: string, layout: PathStepLayout }} PathStep */
+
+const PATH_STEP_KEYS = ['path01Title', 'path02Title', 'path03Title', 'path04Title'];
+
+const PATH_BODY_KEYS = ['path01Body', 'path02Body', 'path03Body', 'path04Body'];
 
 /**
  * @param {(key: string) => string} t
- * @param {string[]} coverImages — una URL per capitolo 05–12
+ * @param {string[]} coverImages — una URL per capitolo 05–08
  */
 export function buildHomePathSteps(t, coverImages) {
 	return PATH_STEP_KEYS.map((labelKey, i) => {
@@ -89,7 +73,8 @@ export function buildHomePathSteps(t, coverImages) {
 			title: t(`home.${labelKey}`),
 			body: t(`home.${PATH_BODY_KEYS[i]}`),
 			image,
-			images: image ? [image] : []
+			images: image ? [image] : [],
+			layout: HOME_PATH_STEP_LAYOUTS[i] ?? 'bottom-left'
 		};
 	});
 }

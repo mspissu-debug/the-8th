@@ -34,7 +34,7 @@ export const locale = writable<Locale>(detectInitial());
 
 export const messages = derived(locale, ($l) => locales[$l]);
 
-/** Traduzione a chiavi puntate (storytelling Matteo, navbar, footer story) */
+/** Traduzione a chiavi puntate (storytelling, navbar, footer) */
 export const t = derived(locale, ($l) => (key: string) => translate($l, key));
 
 export function initLocale(): void {
@@ -56,7 +56,7 @@ export function getLocale(): Locale {
 	return get(locale);
 }
 
-/** Messaggi tipizzati per pagine Michele (admin, mentor index, …) */
+/** Messaggi tipizzati per pagine interne (admin, mentor index, …) */
 export function getMessages(): Messages {
 	return locales[get(locale)];
 }

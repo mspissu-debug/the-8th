@@ -5,11 +5,25 @@ import { getBuiltinShowcases, getBuiltinTalentEntries } from './showcase-registr
 
 type Mentor = (typeof staticMentors)[number];
 
+/** Non sovrascrivere campi statici con valori vuoti da Sanity. */
+function mergeDefined<T extends Record<string, unknown>>(
+	base: T | undefined,
+	patch: Partial<T>
+): T {
+	const out = { ...(base ?? {}) } as T;
+	for (const [key, value] of Object.entries(patch)) {
+		if (value === null || value === undefined || value === '') continue;
+		if (Array.isArray(value) && value.length === 0) continue;
+		(out as Record<string, unknown>)[key] = value;
+	}
+	return out;
+}
+
 function mergeMentors(sanityMentors: ReturnType<typeof mapSanityMentor>[]): Mentor[] {
 	const bySlug = new Map(staticMentors.map((m) => [m.slug, m]));
 	for (const mapped of sanityMentors) {
 		const existing = bySlug.get(mapped.slug);
-		bySlug.set(mapped.slug, { ...existing, ...mapped } as Mentor);
+		bySlug.set(mapped.slug, mergeDefined(existing, mapped) as Mentor);
 	}
 	return [...bySlug.values()].sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 }
@@ -22,8 +36,7 @@ function mergeShowcases(sanityTalents: ReturnType<typeof mapSanityTalent>[]) {
 		const existing = bySlug.get(mapped.slug);
 		if (existing) {
 			bySlug.set(mapped.slug, {
-				...existing,
-				...mapped,
+				...mergeDefined(existing, mapped),
 				skin: existing.skin,
 				projects: existing.projects,
 				projectDetails: existing.projectDetails,

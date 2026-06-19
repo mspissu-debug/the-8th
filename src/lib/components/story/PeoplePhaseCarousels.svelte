@@ -98,6 +98,22 @@
     lightboxImages = currentPhase.images;
     lightboxTitle = $t(currentPhase.labelKey);
   }
+
+  /** Adatta il fit alle immagini verticali (schizzi, bozze). */
+  /** @param {HTMLImageElement} node */
+  function portraitFit(node) {
+    const apply = () => {
+      const portrait = node.naturalHeight > node.naturalWidth * 1.04;
+      node.classList.toggle('people-phases__img--portrait', portrait);
+    };
+    if (node.complete && node.naturalWidth) apply();
+    else node.addEventListener('load', apply, { once: true });
+    return {
+      destroy() {
+        node.removeEventListener('load', apply);
+      }
+    };
+  }
 </script>
 
 <svelte:window on:keydown={onKeydown} />
@@ -180,7 +196,13 @@
                 aria-label="{$t('people.expandPhase')} · {$t(currentPhase.labelKey)}"
                 on:click={openLightbox}
               >
-                <img src={currentSrc} alt="" loading="lazy" decoding="async" />
+                <img
+                  src={currentSrc}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  use:portraitFit
+                />
                 <span class="people-phases__hint">{$t('people.expandPhase')}</span>
               </button>
             {/key}
@@ -231,7 +253,11 @@
   }
 
   .people-phases__head {
+    position: relative;
+    z-index: 2;
     margin-bottom: clamp(1.25rem, 3vh, 2rem);
+    overflow: visible;
+    scroll-margin-top: calc(var(--site-header-offset, 5.75rem) + 0.75rem);
   }
 
   .people-phases__code {
@@ -250,8 +276,13 @@
     font-weight: var(--weight-black, 700);
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    line-height: 1.05;
+    line-height: 1.15;
     color: var(--story-text);
+  }
+
+  .people-phases :global(.people-phases__title .motion-words__word) {
+    overflow: visible;
+    padding-bottom: 0.06em;
   }
 
   .people-phases__stage {
@@ -322,12 +353,13 @@
     position: relative;
     display: block;
     width: 100%;
+    max-height: min(72vh, 42rem);
     padding: 0;
     border: 1px solid var(--story-border);
     border-radius: 0.65rem;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
-    background: var(--story-surface);
+    background: color-mix(in srgb, var(--story-surface) 88%, #0a0a0c);
     cursor: zoom-in;
     text-align: left;
   }
@@ -341,8 +373,14 @@
     transition: transform 0.55s var(--ease-ribbit);
   }
 
-  .people-phases__visual:hover img,
-  .people-phases__visual:focus-visible img {
+  .people-phases__visual img.people-phases__img--portrait {
+    object-fit: contain;
+    object-position: center center;
+    background: color-mix(in srgb, var(--story-surface) 92%, #0a0a0c);
+  }
+
+  .people-phases__visual:hover img:not(.people-phases__img--portrait),
+  .people-phases__visual:focus-visible img:not(.people-phases__img--portrait) {
     transform: scale(1.03);
   }
 

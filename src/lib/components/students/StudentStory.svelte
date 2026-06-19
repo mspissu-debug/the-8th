@@ -106,6 +106,7 @@
   <PeopleProfileSplit
     image={student.portrait || student.finished?.[0] || student.concept?.[0] || ''}
     imageAlt={student.name}
+    imageSide="right"
     {tag}
     name={student.name}
     {roleLine}
@@ -134,7 +135,7 @@
     peersOnly={true}
   />
 
-  <HomeStoryNewsletter bg={storyTones.ash} />
+  <HomeStoryNewsletter bg={storyTones.ash} wide />
 
   <HomeStoryFooter bg={storyTones.void} wide />
 </article>
