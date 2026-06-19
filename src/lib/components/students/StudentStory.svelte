@@ -4,15 +4,11 @@
   import PeopleProfileSplit from '$lib/components/story/PeopleProfileSplit.svelte';
   import PeoplePhaseCarousels from '$lib/components/story/PeoplePhaseCarousels.svelte';
   import PeopleRecognitions from '$lib/components/story/PeopleRecognitions.svelte';
-  import PeopleIndexRow from '$lib/components/story/PeopleIndexRow.svelte';
+  import StoryTalentNav from '$lib/components/story/StoryTalentNav.svelte';
   import HomeStoryNewsletter from '$lib/components/home/HomeStoryNewsletter.svelte';
   import HomeStoryFooter from '$lib/components/home/HomeStoryFooter.svelte';
-  import { storyTalents as builtinStoryTalents } from '$lib/data/home-story.js';
-  import { getBuiltinShowcases } from '$lib/data/showcase-registry.js';
-  import { buildStoryTalentsFromShowcases } from '$lib/data/home-story-build.js';
   import { getTalentNeighborsFromList, talents as builtinTalents } from '$lib/data/talents.js';
   import { EDITION_PAIRS } from '$lib/data/pairs.js';
-  import { excerpt } from '$lib/people-format.js';
   import { studentProductionPhases } from '$lib/data/student-phases.js';
   import PageNav from '$lib/components/PageNav.svelte';
   import { trailStudent } from '$lib/navigation/trails.js';
@@ -27,12 +23,6 @@
 
   $: isEn = $locale === 'en';
   $: talentList = $page.data.talents?.length ? $page.data.talents : builtinTalents;
-  $: storyTalents = $page.data.showcases?.length
-    ? buildStoryTalentsFromShowcases($page.data.showcases)
-    : builtinStoryTalents;
-  $: showcasesBySlug = Object.fromEntries(
-    ($page.data.showcases ?? getBuiltinShowcases()).map((s) => [s.slug, s])
-  );
   $: studentPitch =
     isEn && student.pitchEn ? student.pitchEn : student.pitchIt ?? student.pitch;
   $: neighbors = getTalentNeighborsFromList(talentList, student.slug);
@@ -99,14 +89,6 @@
         }
       ];
 
-  $: rowItems = storyTalents.map((talent) => ({
-    href: talent.href,
-    kicker: talent.project,
-    name: talent.name,
-    excerpt: excerpt(
-      talent.slug === student.slug ? studentPitch : showcasesBySlug[talent.slug]?.pitch ?? talent.project
-    )
-  }));
 </script>
 
 <svelte:head>
@@ -144,11 +126,15 @@
     backLink={{ href: '/students', label: $t('people.allStudents') }}
   />
 
-  <section class="people-index-section" aria-label={$t('profile.exploreTalents')}>
-    <PeopleIndexRow items={rowItems} ctaLabel={$t('people.openProfile')} />
-  </section>
+  <StoryTalentNav
+    currentSlug={student.slug}
+    bg={storyTones.charcoal}
+    sectionCode="05 / 05"
+    showFlow={false}
+    peersOnly={true}
+  />
 
   <HomeStoryNewsletter bg={storyTones.ash} />
 
-  <HomeStoryFooter bg={storyTones.void} />
+  <HomeStoryFooter bg={storyTones.void} wide />
 </article>

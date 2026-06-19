@@ -44,7 +44,9 @@ body.home-story-active:has(.home-story--entered) :is(
   .story-statement__inner,
   .story-vetrina__copy,
   .story-newsletter__inner,
-  .story-scene__copy
+  .story-scene__copy,
+  .ai-strip__inner,
+  .story-footer__inner
 ) {
   padding-left: max(var(--editorial-pad), var(--chapter-index-safe)) !important;
 }

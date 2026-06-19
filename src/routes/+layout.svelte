@@ -68,6 +68,7 @@
 				<a href="/editions/september">Vetrina</a>
 				<a href="/open-call">Candidati</a>
 				<a href="/contact">Contatti</a>
+				<a href="/llms.txt">llms.txt</a>
 			</nav>
 			<span class="foot__tag">International Jewelry Design Contest</span>
 		</div>

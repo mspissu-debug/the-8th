@@ -9,15 +9,18 @@
   /** @type {string} */
   export let bg = '#06060a';
 
+  /** Layout largo come le sezioni home (mentor/talenti). */
+  export let wide = false;
+
   $: explore = footerExploreLinks.map((link) => ({
     href: link.href,
     label: $t(link.key)
   }));
 </script>
 
-<AiAssistantsStrip {bg} />
+<AiAssistantsStrip {bg} {wide} />
 
-<footer class="story-footer" id="home-footer" style="--story-bg: {bg}">
+<footer class="story-footer" class:story-footer--wide={wide} id="home-footer" style="--story-bg: {bg}">
   <div class="story-footer__inner">
     <p class="story-footer__tagline">{$t('footer.tagline')}</p>
 
@@ -67,6 +70,7 @@
 
     <div class="story-footer__bar">
       <p>© {new Date().getFullYear()} THE 8th · {$t('footer.rights')}</p>
+      <a href="/llms.txt">{$t('footer.llms')}</a>
       <a href="/cookie-policy">Cookie Policy</a>
       <div class="story-footer__locale">
         <LocaleToggle />
@@ -87,6 +91,11 @@
   .story-footer__inner {
     max-width: var(--editorial-max);
     margin: 0 auto;
+  }
+
+  .story-footer--wide .story-footer__inner {
+    max-width: var(--max-width);
+    width: 100%;
   }
 
   .story-footer__tagline {

@@ -2,4 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://the8.example.com/sitemap.xml
+# Optional context for AI assistants
+# https://llmstxt.org/
+
+Allow: /llms.txt
+
+Sitemap: https://the-8th.vercel.app/sitemap.xml

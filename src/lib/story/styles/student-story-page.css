@@ -151,3 +151,124 @@
     gap: 0.35rem;
   }
 }
+
+/* —— Profilo talento: full-width, tipografia ampia, meno vuoto —— */
+.student-story .people-profile-meta {
+  max-width: none;
+  width: 100%;
+  padding: 0.65rem var(--editorial-pad) 0.85rem;
+}
+
+.student-story .people-profile-split {
+  padding: clamp(1.25rem, 3.5vh, 2rem) var(--editorial-pad);
+}
+
+.student-story .people-profile-split__grid {
+  max-width: none;
+  width: 100%;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .student-story .people-profile-split__grid {
+    grid-template-columns: minmax(0, 0.38fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+}
+
+.student-story .people-profile-split__portrait {
+  aspect-ratio: 3 / 4;
+  width: min(100%, 22rem);
+  max-height: none;
+  margin-inline: 0;
+}
+
+@media (min-width: 900px) {
+  .student-story .people-profile-split__portrait {
+    width: min(100%, 26rem);
+  }
+}
+
+.student-story .people-profile-split__name {
+  font-size: clamp(2.35rem, 7.5vw, 4.75rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.student-story .people-profile-split__role {
+  margin-top: 0.65rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+}
+
+.student-story .people-profile-split__bio {
+  margin-top: 1rem;
+  max-width: 62ch;
+  font-size: clamp(1.12rem, 2.4vw, 1.45rem);
+  line-height: 1.62;
+  color: color-mix(in srgb, var(--story-text) 82%, transparent);
+}
+
+.student-story .people-profile-split__actions {
+  margin-top: 1.25rem;
+}
+
+.student-story .people-works {
+  padding: clamp(1.75rem, 5vh, 2.75rem) var(--editorial-pad);
+}
+
+.student-story .people-works__inner {
+  max-width: none;
+  width: 100%;
+}
+
+.student-story .people-works__head {
+  margin-bottom: clamp(1rem, 3vh, 1.5rem);
+}
+
+.student-story .people-recognitions {
+  padding: clamp(1.75rem, 5vh, 2.75rem) var(--editorial-pad);
+}
+
+.student-story .people-recognitions__inner {
+  max-width: none;
+  width: 100%;
+}
+
+.student-story .people-recognitions__title {
+  margin-bottom: 1.1rem;
+}
+
+.student-story .story-peer-nav.story-talents {
+  padding: clamp(2rem, 6vh, 3rem) var(--editorial-pad);
+}
+
+.student-story .story-peer-nav__head {
+  margin-bottom: 1.35rem;
+}
+
+.student-story .story-peer-nav__grid--peers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.85rem, 2vw, 1.25rem);
+  max-width: none;
+  width: 100%;
+}
+
+@media (min-width: 720px) {
+  .student-story .story-peer-nav__grid--peers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.student-story .story-peer-nav__grid--peers .story-talents__visual,
+.student-story .story-peer-nav__grid--peers .story-peer-nav__visual {
+  width: 100%;
+  max-height: none;
+  --people-card-w: 100%;
+  --people-card-h: none;
+}
+
+.student-story .story-peer-nav__cta {
+  margin-top: 1.35rem;
+}

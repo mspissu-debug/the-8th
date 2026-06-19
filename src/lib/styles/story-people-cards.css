@@ -21,7 +21,8 @@
 }
 
 .mentors-story .story-mentors,
-.talents-story .story-talents {
+.talents-story .story-talents,
+.student-story .story-talents.story-peer-nav {
 	padding-top: clamp(3rem, 8vh, 4.5rem);
 }
 

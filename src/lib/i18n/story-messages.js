@@ -32,17 +32,74 @@ export const messages = {
       talentsEdition: 'Talenti 2025–2026',
       social: 'Social',
       rights: 'Tutti i diritti riservati',
+      llms: 'Dati per AI (llms.txt)',
       themeDark: 'Tema scuro',
       themeLight: 'Tema chiaro'
     },
     aiAssistants: {
-      aria: 'Chiedi a un assistente AI informazioni su THE 8th',
-      eyebrow: 'Hai domande?',
-      title: 'Chiedi a un AI cos’è THE 8th',
-      lede: 'ChatGPT e Claude aprono con il prompt già inserito. Gemini e Groq copiano il testo negli appunti e aprono la chat — incollalo con ⌘V o Ctrl+V.',
-      copyHint: 'Copia + apri',
-      copied: 'Prompt copiato',
-      openIn: 'Apri {name} con il prompt su THE 8th'
+      openIn: 'Apri {name} con il prompt su THE 8th',
+      pages: {
+        home: {
+          aria: 'Chiedi a un assistente AI informazioni su THE 8th',
+          eyebrow: 'Hai domande?',
+          title: 'Chiedi a un AI cos’è THE 8th',
+          lede: 'Apri ChatGPT o Claude con un prompt sul programma, il percorso annuale e le candidature.'
+        },
+        students: {
+          aria: 'Chiedi a un AI informazioni sui talenti THE 8th',
+          eyebrow: 'Vuoi approfondire?',
+          title: 'Chiedi a un AI chi sono i talenti',
+          lede: 'Prompt pronto sui quattro designer, i loro progetti e il percorso dal laboratorio alla vetrina.'
+        },
+        student: {
+          aria: 'Chiedi a un AI informazioni su {name}',
+          eyebrow: 'Vuoi saperne di più?',
+          title: 'Chiedi a un AI di {name}',
+          lede: 'Prompt su {project}: concept, fasi di lavoro e ruolo del mentor nel programma THE 8th.'
+        },
+        mentors: {
+          aria: 'Chiedi a un AI informazioni sui mentor THE 8th',
+          eyebrow: 'Curiosità?',
+          title: 'Chiedi a un AI chi sono i mentor',
+          lede: 'Prompt sui maestri del programma e su come accompagnano i talenti fino alla vetrina.'
+        },
+        mentor: {
+          aria: 'Chiedi a un AI informazioni su {name}',
+          eyebrow: 'Vuoi approfondire?',
+          title: 'Chiedi a un AI di {name}',
+          lede: 'Prompt sul percorso del mentor, il metodo di guida e il legame con i talenti dell’edizione.'
+        },
+        vetrina: {
+          aria: 'Chiedi a un AI informazioni sulla vetrina THE 8th',
+          eyebrow: 'Design Room',
+          title: 'Chiedi a un AI della vetrina',
+          lede: 'Prompt su Vicenzaoro, le collezioni finite e come THE 8th presenta i talenti al mercato.'
+        },
+        openCall: {
+          aria: 'Chiedi a un AI come candidarsi a THE 8th',
+          eyebrow: 'Vuoi entrare?',
+          title: 'Chiedi a un AI come candidarsi',
+          lede: 'Prompt su requisiti, modulo in tre step e cosa preparare per l’open call.'
+        },
+        contact: {
+          aria: 'Chiedi a un AI come contattare THE 8th',
+          eyebrow: 'Serve aiuto?',
+          title: 'Chiedi a un AI come contattarci',
+          lede: 'Prompt su partnership, stampa e canali per parlare con il team del progetto.'
+        },
+        cookie: {
+          aria: 'Chiedi a un AI informazioni sulla cookie policy',
+          eyebrow: 'Privacy',
+          title: 'Chiedi a un AI sulla cookie policy',
+          lede: 'Prompt chiaro su cookie, finalità e come gestire le preferenze sul sito.'
+        },
+        default: {
+          aria: 'Chiedi a un assistente AI informazioni su THE 8th',
+          eyebrow: 'Hai domande?',
+          title: 'Chiedi a un AI su THE 8th',
+          lede: 'Apri ChatGPT o Claude con un prompt già pronto sul progetto.'
+        }
+      }
     },
     vetrina: {
       pulseTitle1: 'VETRINA',
@@ -336,17 +393,74 @@ export const messages = {
       talentsEdition: 'Talents 2025–2026',
       social: 'Social',
       rights: 'All rights reserved',
+      llms: 'AI data (llms.txt)',
       themeDark: 'Dark theme',
       themeLight: 'Light theme'
     },
     aiAssistants: {
-      aria: 'Ask an AI assistant about THE 8th',
-      eyebrow: 'Questions?',
-      title: 'Ask an AI what THE 8th is',
-      lede: 'ChatGPT and Claude open with the prompt ready. Gemini and Groq copy the text to your clipboard and open the chat — paste with ⌘V or Ctrl+V.',
-      copyHint: 'Copy + open',
-      copied: 'Prompt copied',
-      openIn: 'Open {name} with the THE 8th prompt'
+      openIn: 'Open {name} with the THE 8th prompt',
+      pages: {
+        home: {
+          aria: 'Ask an AI assistant about THE 8th',
+          eyebrow: 'Questions?',
+          title: 'Ask an AI what THE 8th is',
+          lede: 'Open ChatGPT or Claude with a prompt about the program, annual path and applications.'
+        },
+        students: {
+          aria: 'Ask an AI about THE 8th talents',
+          eyebrow: 'Want to dig deeper?',
+          title: 'Ask an AI who the talents are',
+          lede: 'Ready-made prompt on the four designers, their projects and the path from workshop to showcase.'
+        },
+        student: {
+          aria: 'Ask an AI about {name}',
+          eyebrow: 'Want to know more?',
+          title: 'Ask an AI about {name}',
+          lede: 'Prompt on {project}: concept, work phases and the mentor’s role in THE 8th.'
+        },
+        mentors: {
+          aria: 'Ask an AI about THE 8th mentors',
+          eyebrow: 'Curious?',
+          title: 'Ask an AI who the mentors are',
+          lede: 'Prompt on the program’s masters and how they guide talents to the showcase.'
+        },
+        mentor: {
+          aria: 'Ask an AI about {name}',
+          eyebrow: 'Want to dig deeper?',
+          title: 'Ask an AI about {name}',
+          lede: 'Prompt on the mentor’s path, guidance method and link to this edition’s talents.'
+        },
+        vetrina: {
+          aria: 'Ask an AI about THE 8th showcase',
+          eyebrow: 'Design Room',
+          title: 'Ask an AI about the showcase',
+          lede: 'Prompt on Vicenzaoro, finished collections and how THE 8th presents talents to the market.'
+        },
+        openCall: {
+          aria: 'Ask an AI how to apply to THE 8th',
+          eyebrow: 'Want in?',
+          title: 'Ask an AI how to apply',
+          lede: 'Prompt on requirements, the three-step form and what to prepare for the open call.'
+        },
+        contact: {
+          aria: 'Ask an AI how to contact THE 8th',
+          eyebrow: 'Need help?',
+          title: 'Ask an AI how to reach us',
+          lede: 'Prompt on partnerships, press and channels to speak with the project team.'
+        },
+        cookie: {
+          aria: 'Ask an AI about the cookie policy',
+          eyebrow: 'Privacy',
+          title: 'Ask an AI about cookies',
+          lede: 'Clear prompt on cookies, purposes and how to manage preferences on the site.'
+        },
+        default: {
+          aria: 'Ask an AI assistant about THE 8th',
+          eyebrow: 'Questions?',
+          title: 'Ask an AI about THE 8th',
+          lede: 'Open ChatGPT or Claude with a ready-made prompt about the project.'
+        }
+      }
     },
     vetrina: {
       pulseTitle1: 'SHOWCASE',

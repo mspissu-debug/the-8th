@@ -188,7 +188,7 @@
     minVh={0.9}
   />
 
-  <HomeStoryFooter bg={storyTones.void} />
+  <HomeStoryFooter bg={storyTones.void} wide />
 
   {#if entered}
     <HomeStoryChapterIndex
