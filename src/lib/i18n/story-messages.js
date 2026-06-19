@@ -124,9 +124,10 @@ export const messages = {
       edizioniBody:
         'Ogni edizione è un capitolo del percorso THE 8th: selezione dei talenti, affiancamento dei mentor, partner del distretto e collezioni presentate al mercato internazionale.',
       edizioniCta: 'Scopri di più sulle edizioni',
-      vetrinaTitle: 'Vetrina',
+      vetrinaTitle: 'Vicenzaoro Design Room',
+      vetrinaBadge: 'Vicenzaoro',
       vetrinaBody:
-        'Vicenzaoro Design Room: il riscatto diventa visibile. Collezioni finite davanti al mercato internazionale — non come premio di consolazione, ma come palco conquistato.',
+        'A Vicenzaoro, nella Design Room, il riscatto diventa visibile. Collezioni finite davanti al mercato internazionale del gioiello — non come premio di consolazione, ma come palco conquistato.',
       vetrinaCta: 'Scopri di più',
       heroTitle: 'THE 8th',
       heroTagline: 'Il gioiello non adorna. Parla.',
@@ -163,7 +164,7 @@ export const messages = {
       chapterTalents: 'Talenti',
       chapterMentors: 'Mentor',
       chapterWorks: 'Collection',
-      chapterVetrina: 'Vetrina',
+      chapterVetrina: 'Vicenzaoro',
       chapterNewsletter: 'Newsletter',
       chapterClosing: 'Chiusura',
       carouselPrev: 'Progetto precedente',
@@ -194,7 +195,7 @@ export const messages = {
       storyMentorsTitle: 'Mentor d’eccezione',
       storyMentorsBody: 'Guide. Maestri. Mano nella mano.',
       storyVetrinaBody:
-        'Design Room · Vicenzaoro. Il mondo finalmente guarda.',
+        'A Vicenzaoro, nella Design Room, le collezioni finite dei quattro talenti incontrano buyer e operatori da tutto il mondo. Il distretto orafo internazionale come palco del riscatto.',
       storyOpenCallCta: 'Candidati alla prossima edizione',
       path01Title: 'Generazione & racconto',
       path01Body:
@@ -218,9 +219,9 @@ export const messages = {
       talentsLede: 'Quattro designer. Quattro storie di riscatto attraverso il gioiello.',
       mentorsTitle: 'I Mentor',
       mentorsLede: 'Curatori e maestri del progetto THE 8th.',
-      vetrinaTitle: 'Vetrina',
+      vetrinaTitle: 'Vicenzaoro Design Room',
       vetrinaLede:
-        'Le collezioni finite presentate in Design Room a Vicenzaoro — edizione 2025–2026.',
+        'Le collezioni finite presentate in Design Room a Vicenzaoro — edizione 2025–2026. Il palco internazionale del distretto orafo.',
       partnersTitle: 'Aziende partner',
       partnersLede: 'Chi affianca talenti, formazione e vetrina internazionale.',
       openCallLabel: 'Edizione 2026',
@@ -484,9 +485,10 @@ export const messages = {
       edizioniBody:
         'Each edition is a chapter in THE 8th journey: selected talents, mentor support, district partners and collections presented to the international market.',
       edizioniCta: 'Discover more about the editions',
-      vetrinaTitle: 'Showcase',
+      vetrinaTitle: 'Vicenzaoro Design Room',
+      vetrinaBadge: 'Vicenzaoro',
       vetrinaBody:
-        'Vicenzaoro Design Room: redemption becomes visible. Finished collections before the international market — not as a consolation prize, but as a stage earned.',
+        'At Vicenzaoro, in the Design Room, redemption becomes visible. Finished collections before the international jewellery market — not as a consolation prize, but as a stage earned.',
       vetrinaCta: 'Discover more',
       heroTitle: 'THE 8th',
       heroTagline: 'Jewellery does not adorn. It speaks.',
@@ -523,7 +525,7 @@ export const messages = {
       chapterTalents: 'Talents',
       chapterMentors: 'Mentors',
       chapterWorks: 'Collection',
-      chapterVetrina: 'Showcase',
+      chapterVetrina: 'Vicenzaoro',
       chapterNewsletter: 'Newsletter',
       chapterClosing: 'Closing',
       carouselPrev: 'Previous project',
@@ -550,7 +552,8 @@ export const messages = {
       storyCourageBody: 'When silence is not enough, matter remains — and matter listens.',
       storyMentorsTitle: 'Exceptional mentors',
       storyMentorsBody: 'Guides. Masters. Hand in hand.',
-      storyVetrinaBody: 'Design Room · Vicenzaoro. The world finally looks.',
+      storyVetrinaBody:
+        'At Vicenzaoro, in the Design Room, the four talents’ finished collections meet buyers and operators from around the world. The international jewellery district as the stage for redemption.',
       storyOpenCallCta: 'Apply for the next edition',
       path01Title: 'Generation & story',
       path01Body:
@@ -572,9 +575,9 @@ export const messages = {
       talentsLede: 'Four designers. Four stories of redemption through jewellery.',
       mentorsTitle: 'The Mentors',
       mentorsLede: 'Curators and masters behind THE 8th.',
-      vetrinaTitle: 'Showcase',
+      vetrinaTitle: 'Vicenzaoro Design Room',
       vetrinaLede:
-        'Finished collections at Vicenzaoro Design Room — 2025–2026 edition.',
+        'Finished collections at Vicenzaoro Design Room — 2025–2026 edition. The international jewellery district as THE 8th’s stage.',
       partnersTitle: 'Partner companies',
       partnersLede: 'Who supports talents, training and the international showcase.',
       openCallLabel: '2026 edition',

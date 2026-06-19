@@ -171,6 +171,7 @@
     images={storyVetrinaSlides}
     bg={storyTones.void}
     sectionCode={codeForSection(13)}
+    badge={$t('home.vetrinaBadge')}
   />
 
   <HomeStoryNewsletter bg={storyTones.ash} sectionCode={codeForSection(14)} />

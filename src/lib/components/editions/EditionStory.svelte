@@ -69,9 +69,9 @@
       bg={storyTones.charcoal}
       sectionCode="// 03"
       sectionDomId="edition-vetrina"
-      badge={$t('home.vetrinaTitle')}
+      badge={$t('home.vetrinaBadge')}
       titleText={$t('home.vetrinaTitle')}
-      bodyText={$t('home.storyVetrinaBody')}
+      bodyText={$t('home.vetrinaBody')}
     />
   </div>
 
