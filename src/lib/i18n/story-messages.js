@@ -35,6 +35,15 @@ export const messages = {
       themeDark: 'Tema scuro',
       themeLight: 'Tema chiaro'
     },
+    aiAssistants: {
+      aria: 'Chiedi a un assistente AI informazioni su THE 8th',
+      eyebrow: 'Hai domande?',
+      title: 'Chiedi a un AI cos’è THE 8th',
+      lede: 'ChatGPT e Claude aprono con il prompt già inserito. Gemini e Groq copiano il testo negli appunti e aprono la chat — incollalo con ⌘V o Ctrl+V.',
+      copyHint: 'Copia + apri',
+      copied: 'Prompt copiato',
+      openIn: 'Apri {name} con il prompt su THE 8th'
+    },
     vetrina: {
       pulseTitle1: 'VETRINA',
       pulseTitle2: 'IN MOVIMENTO',
@@ -329,6 +338,15 @@ export const messages = {
       rights: 'All rights reserved',
       themeDark: 'Dark theme',
       themeLight: 'Light theme'
+    },
+    aiAssistants: {
+      aria: 'Ask an AI assistant about THE 8th',
+      eyebrow: 'Questions?',
+      title: 'Ask an AI what THE 8th is',
+      lede: 'ChatGPT and Claude open with the prompt ready. Gemini and Groq copy the text to your clipboard and open the chat — paste with ⌘V or Ctrl+V.',
+      copyHint: 'Copy + open',
+      copied: 'Prompt copied',
+      openIn: 'Open {name} with the THE 8th prompt'
     },
     vetrina: {
       pulseTitle1: 'SHOWCASE',

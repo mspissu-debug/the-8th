@@ -12,6 +12,7 @@
 	import FilmGrain from '$lib/components/FilmGrain.svelte';
 	import CookieConsent from '$lib/components/CookieConsent.svelte';
 	import NewsletterPopup from '$lib/components/NewsletterPopup.svelte';
+	import AiAssistantsStrip from '$lib/components/AiAssistantsStrip.svelte';
 	import { initLocale } from '$lib/i18n';
 
 	let { children } = $props();
@@ -54,6 +55,7 @@
 </main>
 
 {#if !storyChrome}
+	<AiAssistantsStrip bg="#06060a" />
 	<footer class="foot">
 		<div class="container foot__inner">
 			<div class="foot__brand">

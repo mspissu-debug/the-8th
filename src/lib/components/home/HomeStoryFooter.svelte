@@ -2,6 +2,7 @@
   import { talents } from '$lib/data/talents.js';
   import { partners } from '$lib/data/partners.js';
   import { siteLinks, footerExploreLinks } from '$lib/data/site-links.js';
+  import AiAssistantsStrip from '$lib/components/AiAssistantsStrip.svelte';
   import LocaleToggle from '$lib/components/LocaleToggle.svelte';
   import { t } from '$lib/i18n';
 
@@ -13,6 +14,8 @@
     label: $t(link.key)
   }));
 </script>
+
+<AiAssistantsStrip {bg} />
 
 <footer class="story-footer" id="home-footer" style="--story-bg: {bg}">
   <div class="story-footer__inner">
@@ -79,7 +82,6 @@
     padding: clamp(4rem, 10vh, 5.5rem) var(--editorial-pad)
       calc(2.5rem + var(--persistent-cta-safe, 0px));
     scroll-margin-top: 2rem;
-    border-top: 1px solid color-mix(in srgb, var(--color-linen) 10%, transparent);
   }
 
   .story-footer__inner {

@@ -2,7 +2,7 @@ import { createClient } from '@sanity/client';
 
 const projectId = process.env.PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.PUBLIC_SANITY_DATASET || 'production';
-const studioUrl = process.env.PUBLIC_SANITY_STUDIO_URL || 'https://the8-ibrido.sanity.studio';
+const studioUrl = process.env.PUBLIC_SANITY_STUDIO_URL || 'https://the-8th-cms.sanity.studio';
 const readToken = process.env.SANITY_API_READ_TOKEN;
 const writeToken = process.env.SANITY_API_WRITE_TOKEN;
 

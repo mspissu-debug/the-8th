@@ -59,7 +59,7 @@ export default {
 		cmsOpen: 'Open Sanity Studio',
 		cmsDocs: 'Sanity documentation',
 		cmsNote:
-			'If you cannot sign in, ask for an Editor invite at sanity.io/manage → project 7krfwszh → Members.',
+			'If you cannot sign in, ask for an Editor invite at sanity.io/manage → project 83490hpo → Members.',
 		students: 'Student page aesthetics',
 		editions: 'Edition page aesthetics',
 		pin: 'Access PIN',

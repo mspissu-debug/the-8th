@@ -59,7 +59,7 @@ export default {
 		cmsOpen: 'Apri Sanity Studio',
 		cmsDocs: 'Documentazione Sanity',
 		cmsNote:
-			'Se non riesci ad entrare, chiedi un invito Editor su sanity.io/manage → progetto 7krfwszh → Members.',
+			'Se non riesci ad entrare, chiedi un invito Editor su sanity.io/manage → progetto 83490hpo → Members.',
 		students: 'Estetica pagine studenti',
 		editions: 'Estetica pagine edizione',
 		pin: 'PIN di accesso',

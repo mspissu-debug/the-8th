@@ -8,5 +8,5 @@ export default defineCliConfig({
 		projectId: projectId || 'replace-me',
 		dataset
 	},
-	studioHost: 'the-8th'
+	studioHost: 'the-8th-cms'
 });
