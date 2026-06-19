@@ -1,5 +1,6 @@
 <script>
   import { tick } from 'svelte';
+  import { browser } from '$app/environment';
 
   /** @type {string} */
   export let text = '';
@@ -19,12 +20,16 @@
   /** Cambia per rianimare (es. indice step scroll). */
   export let resetKey = 0;
 
-  let visible = false;
+  let visible = !browser;
   let lastKey = /** @type {number | undefined} */ (undefined);
 
   $: words = text.trim() ? text.trim().split(/\s+/) : [];
 
   function reveal() {
+    if (!browser) {
+      visible = true;
+      return;
+    }
     visible = false;
     tick().then(() => {
       requestAnimationFrame(() => {
@@ -33,7 +38,7 @@
     });
   }
 
-  $: if (resetKey !== lastKey) {
+  $: if (browser && resetKey !== lastKey) {
     lastKey = resetKey;
     reveal();
   }
